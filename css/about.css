@@ -34,6 +34,11 @@ body {font-family: Verdana,sans-serif;}
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
+
+.container {
+    display: grid; /* 设置容器为Grid布局 */
+    place-items: center; /* 居中放置项目（包括文本）*/
+}
  
 /* 标题文本 */
 .text {
