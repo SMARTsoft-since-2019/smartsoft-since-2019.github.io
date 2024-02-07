@@ -36,8 +36,10 @@ body {font-family: Verdana,sans-serif;}
 }
 
 .container {
-    display: grid; /* 设置容器为Grid布局 */
-    place-items: center; /* 居中放置项目（包括文本）*/
+    top: 50%;
+    left: 10%;
+    color: #f2f2f2;
+    font-size: 15px;
 }
  
 /* 标题文本 */
