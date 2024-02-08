@@ -1,105 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fixed Sidebar Layout</title>
+<title>我的网页</title>
 <style>
   body, html {
-    height: 100%;
     margin: 0;
-    display: flex;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
   }
-  
+
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+
   .sidebar {
-    width: 33.33%;
+    width: 16.66%; /* 左侧六分之一 */
     background-color: #f8f9fa;
-    position: sticky;
-    top: 0;
-    height: 100vh; /* Viewport height */
+    padding: 20px;
+  }
+
+  .sidebar-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  .main-content {
+    width: 33.33%; /* 中间三分之一 */
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    overflow-y: auto; /* Scrollable content */
-    padding: 1em;
-    box-sizing: border-box; /* Include padding in width */
+    background-color: #fff;
+    position: sticky;
+    top: 0;
   }
-  
-  .sidebar img {
+
+  .main-content img {
     max-width: 100%;
     height: auto;
-    margin-bottom: 1em;
+    margin-bottom: 20px;
   }
-  
-  .sidebar p {
-    text-align: center;
+
+  .main-content button {
+    padding: 10px 20px;
   }
-  
-  .sidebar button {
-    display: block;
-    margin: 1em auto;
+
+  .right-content {
+    width: 49.99%; /* 右侧余下的部分 */
+    overflow-x: auto;
   }
-  
-  .main-content {
-    width: 66.66%;
-    padding: 1em;
-    box-sizing: border-box; /* Include padding in width */
+
+  .right-section {
+    margin-bottom: 20px;
   }
-  
-  .section {
-    margin-bottom: 1em;
+
+  .right-section img {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+    margin-right: 10px;
   }
-  
-  .image-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .image-gallery img {
-    width: calc(33.33% - 1em);
-    margin-bottom: 1em;
-  }
-  
-  /* Optional: Add some media queries for responsive layout */
-  @media (max-width: 768px) {
-    body, html {
-      flex-direction: column;
-    }
-    
-    .sidebar, .main-content {
-      width: 100%;
-    }
-  }
+
 </style>
 </head>
 <body>
 
-<div class="sidebar">
-  <img src="/assets/favicon.png" alt="Sidebar Image">
-  <p>This is some text in the sidebar.</p>
-  <button>A Button</button>
-</div>
-
-<div class="main-content">
-  <div class="section">
-    <p>Some text above the image gallery.</p>
-    <div class="image-gallery">
-      <img src="/assets/img1.jpg" alt="Image 1">
-      <img src="/assets/img2.jpg" alt="Image 2">
-      <img src="/assets/img3.jpg" alt="Image 3">
-      <!-- Add more images as needed -->
+<div class="container">
+  <!-- 左侧侧边栏 -->
+  <div class="sidebar">
+    <div class="sidebar-top">
+      <img src="icon.png" alt="小图标" class="sidebar-icon">
+      <p class="sidebar-text">一句话</p>
+    </div>
+    <div class="sidebar-section">
+      <p>第一行文字</p>
+      <p>第二行文字</p>
+      <p>第三行文字</p>
+      <p>第四行文字</p>
     </div>
   </div>
-  <div class="section">
-    <p>Section 2 Text</p>
+
+  <!-- 中间主要内容区域 -->
+  <div class="main-content">
+    <img src="main-image.jpg" alt="主要图片">
+    <p>这是一段文字。</p>
+    <button>一个按钮</button>
   </div>
-  <div class="section">
-    <p>Section 3 Text</p>
-  </div>
-  <div class="section">
-    <p>Section 4 Text</p>
+
+  <!-- 右侧内容区域 -->
+  <div class="right-content">
+    <div class="right-section">
+      <p>第一部分上面的文字</p>
+      <img src="image1.jpg" alt="图片1">
+      <img src="image2.jpg" alt="图片2">
+      <img src="image3.jpg" alt="图片3">
+    </div>
+    <div class="right-section">
+      <p>第二部分文字</p>
+    </div>
+    <div class="right-section">
+      <p>第三部分文字</p>
+    </div>
+    <div class="right-section">
+      <p>第四部分文字</p>
+    </div>
   </div>
 </div>
 
