@@ -8,7 +8,6 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow-x: hidden;
   }
 
   .container {
@@ -17,7 +16,7 @@
   }
 
   .sidebar {
-    width: 15%; /* 左侧六分之一 */
+    width: 16.66%; /* 左侧六分之一 */
     background-color: #f8f9fa;
     padding: 20px;
   }
@@ -35,7 +34,7 @@
   }
 
   .main-content {
-    width: 25%; /* 中间三分之一 */
+    width: 33.33%; /* 中间三分之一 */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,19 +55,31 @@
   }
 
   .right-content {
-    width: 60%; /* 右侧余下的部分 */
-    overflow-x: auto;
+    width: 49.99%; /* 右侧余下的部分 */
+    overflow-x: auto; /* 启用水平滚动条 */
+    white-space: nowrap; /* 防止图片换行 */
+  }
+
+  .image-gallery {
+    display: flex; /* 使图片水平排列 */
+  }
+
+  .image-gallery img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px; /* 图片之间的间距 */
+  }
+
+  /* 隐藏最后一个图片的右边距 */
+  .image-gallery img:last-child {
+    margin-right: 0;
   }
 
   .right-section {
-    margin-bottom: 20px;
-  }
-
-  .right-section img {
-    max-width: 100%;
-    height: auto;
-    display: inline-block;
-    margin-right: 10px;
+    display: inline-block; /* 使文本块可以与其他块并排 */
+    vertical-align: top; /* 对齐文本块的顶部 */
+    margin-right: 20px; /* 图片和文字之间的间距 */
+    white-space: normal; /* 允许文本换行 */
   }
 
 </style>
@@ -101,9 +112,12 @@
   <div class="right-content">
     <div class="right-section">
       <p>第一部分上面的文字</p>
+    </div>
+    <div class="image-gallery">
       <img src="/assets/img1.jpg" alt="图片1">
-      <img src="/assets/img2.jpg" alt="图片2">
-      <img src="/assets/img3.jpg" alt="图片3">
+      <img src="/assets/img1.jpg" alt="图片2">
+      <img src="/assets/img1.jpg" alt="图片3">
+      <!-- 更多图片可以在这里添加 -->
     </div>
     <div class="right-section">
       <p>第二部分文字</p>
