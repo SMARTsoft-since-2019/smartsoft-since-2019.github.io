@@ -16,7 +16,7 @@
   }
 
   .sidebar {
-    width: 15%; /* 左侧六分之一 */
+    width: 15%; 
     background-color: #f8f9fa;
     padding: 20px;
   }
@@ -34,7 +34,7 @@
   }
 
   .main-content {
-    width: 25%; /* 中间三分之一 */
+    width: 25%; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,31 +55,30 @@
   }
 
   .right-content {
-    width: 60%; /* 右侧余下的部分 */
+    width: 60%;
   }
 
   .image-gallery {
-    display: flex; /* 使图片水平排列 */
-    overflow-x: auto; /* 启用水平滚动条 */
-    white-space: nowrap; /* 防止图片换行 */
+    display: flex; 
+    overflow-x: auto; 
+    white-space: nowrap; 
   }
 
   .image-gallery img {
     max-width: 100%;
     height: auto;
-    margin-right: 10px; /* 图片之间的间距 */
+    margin-right: 10px; 
   }
 
-  /* 隐藏最后一个图片的右边距 */
+  
   .image-gallery img:last-child {
     margin-right: 0;
   }
 
   .right-section {
-    /*display: inline-block; /* 使文本块可以与其他块并排 */
-    vertical-align: top; /* 对齐文本块的顶部 */
-    margin-right: 20px; /* 图片和文字之间的间距 */
-    white-space: normal; /* 允许文本换行 */
+    vertical-align: top; 
+    margin-right: 20px; 
+    white-space: normal; 
   }
 
 </style>
@@ -87,7 +86,7 @@
 <body>
 
 <div class="container">
-  <!-- 左侧侧边栏 -->
+
   <div class="sidebar">
     <div class="sidebar-top">
       <img src="/assets/favicon.ico" alt="小图标" class="sidebar-icon">
@@ -101,7 +100,7 @@
     </div>
   </div>
 
-  <!-- 中间主要内容区域 -->
+  
   <div class="main-content">
     <img src="/assets/favicon.png" alt="主要图片">
     <p>SMARTsoft Clock</p>
@@ -109,7 +108,7 @@
     <button>获取</button>
   </div>
 
-  <!-- 右侧内容区域 -->
+  
   <div class="right-content">
     <div class="right-section">
       <p>屏幕截图</p>
@@ -118,7 +117,7 @@
       <img src="/assets/img1.jpg" alt="图片1">
       <img src="/assets/img1.jpg" alt="图片2">
       <img src="/assets/img1.jpg" alt="图片3">
-      <!-- 更多图片可以在这里添加 -->
+      
     </div>
     <div class="right-section">
       <p>描述</p>
