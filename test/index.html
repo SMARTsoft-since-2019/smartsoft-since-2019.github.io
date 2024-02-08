@@ -11,7 +11,7 @@
     display: flex;
   }
   
-  .sidebar {
+  /*.sidebar {
     width: 33.33%;
     background-color: #f8f9fa;
     position: fixed;
@@ -21,7 +21,7 @@
     align-items: center;
     justify-content: space-between;
     overflow: auto;
-  }
+  }*/
   
   .sidebar img {
     max-width: 100%;
@@ -38,11 +38,25 @@
     margin: 1em auto;
   }
   
+  .sidebar {
+    width: 33.33%;
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    height: 100vh; /* Viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow-y: auto; /* Scrollable content */
+    padding: 1em;
+    box-sizing: border-box; /* Include padding in width */
+  }
+  
   .main-content {
-    right: 0%;
     width: 66.66%;
     padding: 1em;
-    overflow: auto;
+    box-sizing: border-box; /* Include padding in width */
   }
   
   .section {
