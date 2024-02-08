@@ -3,31 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>水平方框布局</title>
-<link rel="stylesheet" type="text/css" href="/css/software-download.css">
+<title>Fixed Sidebar Layout</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 33.33%;
+    background-color: #f8f9fa;
+    position: fixed;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: auto;
+  }
+  
+  .sidebar img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+  }
+  
+  .sidebar p {
+    text-align: center;
+  }
+  
+  .sidebar button {
+    display: block;
+    margin: 1em auto;
+  }
+  
+  .main-content {
+    width: 66.66%;
+    padding: 1em;
+    overflow: auto;
+  }
+  
+  .section {
+    margin-bottom: 1em;
+  }
+  
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .image-gallery img {
+    width: calc(33.33% - 1em);
+    margin-bottom: 1em;
+  }
+  
+  /* Optional: Add some media queries for responsive layout */
+  @media (max-width: 768px) {
+    body, html {
+      flex-direction: column;
+    }
+    
+    .sidebar, .main-content {
+      width: 100%;
+    }
+  }
+</style>
 </head>
 <body>
 
-<div class="box-container">
-  <div class="box">
-    <img src="/assets/img1.jpg" alt="Image 1">
-    <p>描述文字 1</p>
-    <a href="https://example.com/link1">链接 1</a>
+<div class="sidebar">
+  <img src="/assets/favicon.ico" alt="Sidebar Image">
+  <p>This is some text in the sidebar.</p>
+  <button>A Button</button>
+</div>
+
+<div class="main-content">
+  <div class="section">
+    <p>Some text above the image gallery.</p>
+    <div class="image-gallery">
+      <img src="/assets/img1.jpg" alt="Image 1">
+      <img src="/assets/img2.jpg" alt="Image 2">
+      <img src="/assets/img3.jpg" alt="Image 3">
+      <!-- Add more images as needed -->
+    </div>
   </div>
-  <div class="box">
-    <img src="/assets/img1.jpg" alt="Image 2">
-    <p>描述文字 2</p>
-    <a href="https://example.com/link2">链接 2</a>
+  <div class="section">
+    <p>Section 2 Text</p>
   </div>
-  <div class="box">
-    <img src="/assets/img1.jpg" alt="Image 3">
-    <p>描述文字 3</p>
-    <a href="https://example.com/link3">链接 3</a>
+  <div class="section">
+    <p>Section 3 Text</p>
   </div>
-  <div class="box">
-    <img src="/assets/img1.jpg" alt="Image 4">
-    <p>描述文字 4</p>
-    <a href="https://example.com/link4">链接 4</a>
+  <div class="section">
+    <p>Section 4 Text</p>
   </div>
 </div>
 
