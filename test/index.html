@@ -17,24 +17,28 @@
         top: 0;
         width: 100%;
         z-index: 1000;
-    }
-    .navbar-content {
-        display: flex;
+        /*display: flex;*/
         justify-content: space-between;
         align-items: center;
     }
     .navbar-icon {
-        margin-right: auto;
+        display: inline-block;
+        transform: translateY(7.5px);
     }
     .navbar-text {
+        display: inline-block;
         margin: 0 10px;
     }
     .navbar-buttons {
-        display: flex;
-        margin-left: auto;
+        display: inline-block;
     }
-    .navbar-buttons button {
+    .navbar-buttons a {
         margin-left: 10px;
+        color: white; 
+        text-decoration: none;
+    }
+    .navbar-buttons a:hover {
+        text-decoration: underline;
     }
     .sidebar {
         position: fixed;
@@ -138,16 +142,15 @@
 <body>
 
 <div class="navbar">
-    <div class="navbar-content">
-        <div class="navbar-icon">Icon</div>
-        <div class="navbar-text">One Sentence</div>
-        <div class="navbar-buttons">
-            <button>Button 1</button>
-            <button>Button 2</button>
-            <button>Button 3</button>
-        </div>
+    <div class="navbar-icon"><img src="/assets/favicon.png" alt="Icon" height="auto" width="30px"></div>
+    <div class="navbar-text"><h3>SMARTsoft - 应用和游戏</h3></div>
+    <div class="navbar-buttons">
+        <a href="#">首页</a>
+        <a href="/software-download">软件下载</a>
+        <a href="/about">关于</a>
     </div>
 </div>
+
 
 <div class="sidebar">
     <h3>Sidebar Navigation</h3>
