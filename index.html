@@ -1,78 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
- <link rel="stylesheet" type="text/css" href="/css/mainpage.css">
- <link rel="shortcut icon" href="/assets/favicon.ico" />
-<title>SMARTsoft - 应用和游戏</title>
- <style>
-        .black-link {
-            color: black; 
-            text-decoration: none;
-        }
-        
-        .black-link:hover {
-            color: gray;
-        }
-        .no-wrap {
-        display: inline; 
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Coder</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    .navbar {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    .main-content {
+        margin-top: 70px; /* Adjust according to navbar height */
+        padding: 20px;
+    }
+    .slideshow-container {
+        position: relative;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .slide {
+        display: none;
+    }
+    .slide img {
+        width: 100%;
+    }
+    .slide-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+    .slide-content h2 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+    .slide-content p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    .slide-content button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    .three-columns {
+        display: flex;
+    }
+    .column {
+        flex: 1;
+        padding: 0 10px;
+    }
+    .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
 </head>
- 
 <body>
-<div id="container" style="width:100%;height:100%">
 
-<div id="header">
-<img src="/assets/favicon.png" alt="SMARTsoft ICO" width="3%" height="3%" class="no-wrap">
-<h1 style="margin-bottom:0;height:12%;display: inline;" class="no-wrap">SMARTsoft - 应用和游戏</h1></div>
-
-<div id="menu" style="height:80%;width:10%;float:left;">
-<b>菜单</b><br>
-<a href="#" class="black-link">首页</a>
-<br>
-<a href="/software-download" class="black-link">软件下载</a>
-<br>
-<a href="/about" class="black-link">关于</a>
+<div class="navbar">
+    <div class="navbar-icon"><img src="/assets/favicon.ico"></div>
+    <div class="navbar-text">One Sentence</div>
+    <div class="navbar-buttons">
+        <button>Button 1</button>
+        <button>Button 2</button>
+        <button>Button 3</button>
+    </div>
 </div>
 
-<div id="content" style="height:80%;width:90%;float:left;">
- <div class="slideshow-container">
-  <div class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
-    <img decoding="async" src="/assets/img1.jpg" style="width:100%">
-    <div class="text">SMARTsoft</div>
-  </div>
- 
-  <div class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
-    <img decoding="async" src="/assets/img2.jpg" style="width:100%">
-    <div class="text">SMARTsoft Clock</div>
-  </div>
- 
-  <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-    <img decoding="async" src="/assets/img3.jpg" style="width:100%">
-    <div class="text">SMARTsoft Benchmark</div>
-  </div>
- 
-  <a class="prev" onclick="plusSlides(-1)">❮</a>
-  <a class="next" onclick="plusSlides(1)">❯</a>
-</div>
-<br>
- 
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-</div>
- <script src="/js/mainpage.js"></script>
+<div class="main-content">
+    <div class="slideshow-container">
+        <div class="slide">
+            <img src="/assets/img1.jpg" alt="Slide 1">
+            <div class="slide-content">
+                <h2>Slide 1 Title</h2>
+                <p>Slide 1 Description</p>
+                <button>Slide 1 Button</button>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="/assets/img2.jpg" alt="Slide 2">
+            <div class="slide-content">
+                <h2>Slide 2 Title</h2>
+                <p>Slide 2 Description</p>
+                <button>Slide 2 Button</button>
+            </div>
+        </div>
+        <!-- Add more slides here -->
+    </div>
+
+    <div class="three-columns">
+        <div class="column">
+            <h3>Column 1</h3>
+            <p>Row 1</p>
+            <p>Row 2</p>
+            <p>Row 3</p>
+            <p>Row 4</p>
+        </div>
+        <div class="column">
+            <h3>Column 2</h3>
+            <p>Row 1</p>
+            <p>Row 2</p>
+            <p>Row 3</p>
+            <p>Row 4</p>
+        </div>
+        <div class="column">
+            <h3>Column 3</h3>
+            <p>Row 1</p>
+            <p>Row 2</p>
+            <p>Row 3</p>
+            <p>Row 4</p>
+        </div>
+    </div>
 </div>
 
-<div id="footer" style="clear:both;text-align:center">
-© SMARTsoft 2024</div>
-
+<div class="footer">
+    Footer Text
 </div>
+
 </body>
- 
 </html>
