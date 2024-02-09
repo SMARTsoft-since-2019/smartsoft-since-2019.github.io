@@ -32,9 +32,14 @@
     }
     .navbar-buttons {
         display: inline-block;
+        color: black; 
+        text-decoration: none;
     }
-    .navbar-buttons button {
+    .navbar-buttons a {
         margin-left: 10px;
+    }
+    .navbar-buttons a:hover {
+        text-decoration: underline;
     }
     .main-content {
         margin-top: 70px; /* Adjust according to navbar height */
@@ -117,9 +122,9 @@
     <div class="navbar-icon"><img src="/assets/favicon.png" alt="Icon" height="auto" width="30px"></div>
     <div class="navbar-text"><h3>SMARTsoft - 应用和游戏</h3></div>
     <div class="navbar-buttons">
-        <button>首页</button>
-        <button>软件下载</button>
-        <button>关于</button>
+        <a href="#">首页</a>
+        <a href="/software-download">软件下载</a>
+        <a href="/about">关于</a>
     </div>
 </div>
 
