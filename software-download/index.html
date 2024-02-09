@@ -147,6 +147,9 @@
         slides[slideIndex-1].style.display = "block";
         setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
+    function redirectToPage(url){
+        window.location.href = "https://smartsoft-since-2019.github.io/software-download/"+url;
+    }
 </script>
 </head>
 <body>
@@ -176,7 +179,7 @@
             <div class="slide-content">
                 <h2>SMARTsoft Clock</h2>
                 <p>No Descriptions.</p>
-                <button>了解详情</button>
+                <button onclick="redirectToPage("smartsoftclock")">了解详情</button>
             </div>
         </div>
         <div class="slide">
@@ -193,13 +196,15 @@
 
     <div class="feature-section">
         <h3>应用</h3>
-        <div class="feature-box">
-            <img src="/assets/favicon.png" alt="Feature 3 Image" height="10" width="auto">
-            <div class="feature-box-content">
-                <p>SMARTsoft Clock</p>
-                <p>暂无简介。</p>
+        <a href="example.com">
+            <div class="feature-box">
+                <img src="/assets/favicon.png" alt="Feature 3 Image" height="10" width="auto">
+                <div class="feature-box-content">
+                    <p>SMARTsoft Clock</p>
+                    <p>暂无简介。</p>
+                </div>
             </div>
-        </div>
+        </a>
         <div class="feature-box">
             <img src="/assets/favicon.png" alt="Feature 3 Image" height="10" width="auto">
             <div class="feature-box-content">
