@@ -1,135 +1,223 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SMARTsoft - 应用和游戏</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Super Coder</title>
 <style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
-
-  .container {
-    display: flex;
-    height: 100vh;
-  }
-
-  .sidebar {
-    width: 15%; /* 左侧六分之一 */
-    background-color: #f8f9fa;
-    padding: 20px;
-  }
-
-  .sidebar-top {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-
-  .sidebar-icon {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-  }
-
-  .main-content {
-    width: 25%; /* 中间三分之一 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    position: sticky;
-    top: 0;
-  }
-
-  .main-content img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-  }
-
-  .main-content button {
-    padding: 10px 20px;
-  }
-
-  .right-content {
-    width: 60%; /* 右侧余下的部分 */
-  }
-
-  .image-gallery {
-    display: flex; /* 使图片水平排列 */
-    overflow-x: auto; /* 启用水平滚动条 */
-    white-space: nowrap; /* 防止图片换行 */
-  }
-
-  .image-gallery img {
-    max-width: 100%;
-    height: auto;
-    margin-right: 10px; /* 图片之间的间距 */
-  }
-
-  /* 隐藏最后一个图片的右边距 */
-  .image-gallery img:last-child {
-    margin-right: 0;
-  }
-
-  .right-section {
-    /*display: inline-block; /* 使文本块可以与其他块并排 */
-    vertical-align: top; /* 对齐文本块的顶部 */
-    margin-right: 20px; /* 图片和文字之间的间距 */
-    white-space: normal; /* 允许文本换行 */
-  }
-
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    .navbar {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    .navbar-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-icon {
+        margin-right: auto;
+    }
+    .navbar-text {
+        margin: 0 10px;
+    }
+    .navbar-buttons {
+        display: flex;
+        margin-left: auto;
+    }
+    .navbar-buttons button {
+        margin-left: 10px;
+    }
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 40px;
+        background-color: #f4f4f4;
+        padding: 20px;
+        width: 200px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .sidebar h3 {
+        margin-top: 0;
+    }
+    .main-content {
+        margin-top: 70px; /* Adjust according to navbar height */
+        padding: 20px;
+    }
+    .slideshow-container {
+        position: relative;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .slide {
+        display: none;
+    }
+    .slide img {
+        width: 100%;
+    }
+    .slide-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+    .slide-content h2 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+    .slide-content p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    .slide-content button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    .feature-section {
+        margin-bottom: 20px;
+    }
+    .feature-section h3 {
+        margin-top: 0;
+    }
+    .feature-box {
+        display: flex;
+        margin-top: 10px;
+    }
+    .feature-box img {
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
+    }
+    .feature-box-content {
+        flex: 1;
+    }
+    .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
 </style>
+<script>
+    var slideIndex = 0;
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("slide");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1;}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+</script>
 </head>
 <body>
 
-<div class="container">
-  <!-- 左侧侧边栏 -->
-  <div class="sidebar">
-    <div class="sidebar-top">
-      <img src="/assets/favicon.ico" alt="小图标" class="sidebar-icon">
-      <h3 class="sidebar-text">SMARTsoft - 应用和游戏</h3>
+<div class="navbar">
+    <div class="navbar-content">
+        <div class="navbar-icon">Icon</div>
+        <div class="navbar-text">One Sentence</div>
+        <div class="navbar-buttons">
+            <button>Button 1</button>
+            <button>Button 2</button>
+            <button>Button 3</button>
+        </div>
     </div>
-    <div class="sidebar-section">
-      <p>菜单</p>
-      <p>首页</p>
-      <p>软件下载</p>
-      <p>关于</p>
-    </div>
-  </div>
+</div>
 
-  <!-- 中间主要内容区域 -->
-  <div class="main-content">
-    <img src="/assets/favicon.png" alt="主要图片">
-    <p>SMARTsoft Clock</p>
-    <p>慧软钟</p>
-    <button>获取</button>
-  </div>
+<div class="sidebar">
+    <h3>Sidebar Navigation</h3>
+    <p>Menu Item 1</p>
+    <p>Menu Item 2</p>
+    <p>Menu Item 3</p>
+</div>
 
-  <!-- 右侧内容区域 -->
-  <div class="right-content">
-    <div class="right-section">
-      <p>屏幕截图</p>
+<div class="main-content">
+    <div class="slideshow-container">
+        <div class="slide">
+            <img src="/assets/img1.jpg" alt="Slide 1">
+            <div class="slide-content">
+                <h2>Slide 1 Title</h2>
+                <p>Slide 1 Description</p>
+                <button>Slide 1 Button</button>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="/assets/img2.jpg" alt="Slide 2">
+            <div class="slide-content">
+                <h2>Slide 2 Title</h2>
+                <p>Slide 2 Description</p>
+                <button>Slide 2 Button</button>
+            </div>
+        </div>
+        <!-- Add more slides here -->
     </div>
-    <div class="image-gallery">
-      <img src="/assets/img1.jpg" alt="图片1">
-      <img src="/assets/img1.jpg" alt="图片2">
-      <img src="/assets/img1.jpg" alt="图片3">
-      <!-- 更多图片可以在这里添加 -->
+    <script>showSlides();</script>
+
+    <div class="feature-section">
+        <h3>Feature Section 1</h3>
+        <div class="feature-box">
+            <img src="/assets/favicon.png" alt="Feature 1 Image" height="10" width="auto">
+            <div class="feature-box-content">
+                <p>Feature 1 Description</p>
+                <p>More details about feature 1</p>
+            </div>
+        </div>
+        <div class="feature-box">
+            <img src="/assets/favicon.png" alt="Feature 2 Image" height="10" width="auto">
+            <div class="feature-box-content">
+                <p>Feature 2 Description</p>
+                <p>More details about feature 2</p>
+            </div>
+        </div>
+        <!-- Add more feature boxes here -->
     </div>
-    <div class="right-section">
-      <p>描述</p>
+
+    <div class="feature-section">
+        <h3>Feature Section 2</h3>
+        <div class="feature-box">
+            <img src="/assets/favicon.png" alt="Feature 3 Image" height="10" width="auto">
+            <div class="feature-box-content">
+                <p>Feature 3 Description</p>
+                <p>More details about feature 3</p>
+            </div>
+        </div>
+        <div class="feature-box">
+            <img src="/assets/favicon.png" alt="Feature 4 Image" height="10" width="auto">
+            <div class="feature-box-content">
+                <p>Feature 4 Description</p>
+                <p>More details about feature 4</p>
+            </div>
+        </div>
+        <!-- Add more feature boxes here -->
     </div>
-    <div class="right-section">
-      <p>系统要求</p>
-    </div>
-    <div class="right-section">
-      <p>其他信息</p>
-    </div>
-  </div>
+</div>
+
+<div class="footer">
+    Footer Text
 </div>
 
 </body>
