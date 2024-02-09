@@ -79,7 +79,6 @@
 </style>
 <script>
     var slideIndex = 0;
-    showSlides();
 
     function showSlides() {
         var i;
@@ -92,7 +91,6 @@
         slides[slideIndex-1].style.display = "block";
         setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
-    showSlides();
 </script>
 </head>
 <body>
@@ -152,6 +150,9 @@
         </div>
     </div>
 </div>
+<script>
+    showSlides();
+</script>
 
 <div class="footer">
     Footer Text
