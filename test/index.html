@@ -131,24 +131,29 @@
         bottom: 0;
         width: 100%;
     }
-    .icon-container {
-        display: flex;
-        align-items: center; /* 垂直对齐 */
-      }
-    
-      .icon-container img {
-        width: 50px; /* 正方形图标，设置宽度，高度自动调整 */
-        height: auto;
-        margin-right: 10px; /* 图标与文字之间的间距 */
-      }
-    
-      .icon-container p {
-        margin: 0; /* 移除默认外边距 */
-      }
-    
-      .icon-container button {
-        margin-top: 5px; /* 按钮与上面文字之间的间距 */
-      }
+     .container {
+    display: flex;
+    align-items: flex-start; /* 图标与文字对齐 */
+  }
+
+  .icon {
+    width: 100px; /* 正方形图标的大小 */
+    height: 100px;
+  }
+
+  .text-button-container {
+    display: flex;
+    flex-direction: column; /* 文字与按钮竖直排列 */
+    margin-left: 10px; /* 与图标保持一定间距 */
+  }
+
+  .text-button-container p {
+    margin: 0; /* 移除默认的外边距 */
+  }
+
+  .text-button-container button {
+    margin-top: 5px; /* 按钮与文字之间的间距 */
+  }
 </style>
 <script>
     var slideIndex = 0;
@@ -187,11 +192,12 @@
 </div>
     
 <div class="main-content">
-    <div class="icon-container">
-      <img src="/assets/favicon.png" alt="大图标" style="height: 500px;width: auto"> <!-- 替换为您的图标图片路径 -->
-      <h2>这是文字</h2>
-        <br>
-      <button>按钮</button>
+    <div class="container">
+      <img class="icon" src="/assets/favicon.png" alt="大图标"> <!-- 替换为您的图标图片路径 -->
+      <div class="text-button-container">
+        <p>这是文字</p>
+        <button>按钮</button>
+      </div>
     </div>
     <div class="three-columns">
         <div class="column">
