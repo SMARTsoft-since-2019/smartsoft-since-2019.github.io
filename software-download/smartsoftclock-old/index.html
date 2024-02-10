@@ -1,1 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>SMARTsoft - 应用和游戏</title>
+<style>
+  .black-link {
+      color: black; 
+      text-decoration: none;
+  }
+  
+  .black-link:hover {
+      color: gray;
+  }
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
 
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+
+  .sidebar {
+    width: 15%; 
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+
+  .sidebar-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  .main-content {
+    width: 25%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+  }
+
+  .main-content img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .main-content button {
+    padding: 10px 20px;
+  }
+
+  .right-content {
+    width: 60%;
+    overflow-y: auto;
+  }
+
+  .image-gallery {
+    display: flex; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+  }
+
+  .image-gallery img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px; 
+  }
+
+  
+  .image-gallery img:last-child {
+    margin-right: 0;
+  }
+
+  .right-section {
+    vertical-align: top; 
+    margin-right: 20px; 
+    white-space: normal; 
+  }
+
+</style>
+  <script type="text/javascript">
+        function redirect(){
+            window.open("https://www.example.com");
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="sidebar">
+    <div class="sidebar-top">
+      <img src="/assets/favicon.ico" alt="小图标" class="sidebar-icon">
+      <h3 class="sidebar-text">SMARTsoft - 应用和游戏</h3>
+    </div>
+    <div class="sidebar-section">
+      <p>菜单</p>
+      <a href="/" class="black-link"><p>首页</p></a>
+      <a href="/software-download" class="black-link"><p>软件下载</p></a>
+      <a href="/about" class="black-link"><p>关于</p></a>
+    </div>
+  </div>
+
+  
+  <div class="main-content">
+    <img src="/assets/favicon.png" alt="主要图片">
+    <p>SMARTsoft Clock</p>
+    <p>慧软钟</p>
+    <button onclick="redirect()">获取</button>
+  </div>
+
+  
+  <div class="right-content">
+    <div class="right-section">
+      <h3>屏幕截图</h3>
+    </div>
+    <div class="image-gallery">
+      <img src="/assets/img1.jpg" alt="图片1">
+      <img src="/assets/img1.jpg" alt="图片2">
+      <img src="/assets/img1.jpg" alt="图片3">
+      
+    </div>
+    <div class="right-section">
+      <h3>描述</h3>
+      <h1>SMARTsoft Clock <a href="https://github.com/SMARTsoft-since-2019/SmartsoftClock/releases/tag/3.5a"><img alt="" src="https://img.shields.io/badge/release-3.5a-34c552.svg" /></a></h1>
+<p>Latest Build: 3.5a released on September 23, 2023</p>
+<h3>How to use</h3>
+<ul>
+<li>Choose the appropriate version (x86/x64) and download.</li>
+<li>SMARTsoft Clock is single-file and click-to-run without installation.</li>
+<li>Customize the clock using hotkeys (instructions displayed on first startup and on title bar).</li>
+<li>For any issues, fell free to submit them or join our QQ group: 625998847.</li>
+</ul>
+<hr />
+<h1>慧软钟 <a href="https://github.com/SMARTsoft-since-2019/SmartsoftClock/releases/tag/3.5a"><img alt="" src="https://img.shields.io/badge/release-3.5a-34c552.svg" /></a></h1>
+<p>最新稳定版： 3.5a 发布于2023年9月23日</p>
+<h3>使用方法：</h3>
+<ul>
+<li>选择32位(x86)或64位的版本下载。</li>
+<li>即点即用，无需安装。</li>
+<li>使用键盘快捷键自定义时钟（快捷键说明会在首次启动时弹窗和在标题栏上展示）</li>
+<li>如有任何问题，欢迎提交Issue或加入我们的 QQ 群：625998847。</li>
+</ul>
+
+    </div>
+    <div class="right-section">
+      <h3>系统要求</h3>
+    </div>
+    <div class="right-section">
+      <h3>其他信息</h3>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
