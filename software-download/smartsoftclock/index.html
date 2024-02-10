@@ -154,6 +154,33 @@
   .text-button-container button {
     margin-top: 5px; /* 按钮与文字之间的间距 */
   }
+    .right-content {
+    overflow-y: auto;
+  }
+
+  .image-gallery {
+    display: flex; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+  }
+
+  .image-gallery img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px; 
+  }
+
+  
+  .image-gallery img:last-child {
+    margin-right: 0;
+  }
+
+  .right-section {
+    vertical-align: top; 
+    margin-right: 20px; 
+    white-space: normal; 
+  }
+
 </style>
 <script>
     var slideIndex = 0;
@@ -185,20 +212,63 @@
 
 
 <div class="sidebar">
-    <h3>Sidebar Navigation</h3>
-    <p>Menu Item 1</p>
-    <p>Menu Item 2</p>
-    <p>Menu Item 3</p>
+    <h3>SMARTsoft Clock</h3>
+    <p>屏幕截图</p>
+    <p>描述</p>
+    <p>系统要求</p>
+    <p>其他信息</p>
 </div>
     
 <div class="main-content">
     <div class="container">
       <img class="icon" src="/assets/favicon.png" alt="大图标"> <!-- 替换为您的图标图片路径 -->
       <div class="text-button-container">
-        <p>这是文字</p>
-        <button>按钮</button>
+        <h1>SMARTsoft Clock</h1>
+        <button>获取</button>
       </div>
     </div>
+
+    <div class="right-content">
+        <div class="right-section">
+          <h3>屏幕截图</h3>
+        </div>
+        <div class="image-gallery">
+          <img src="/assets/img1.jpg" alt="图片1">
+          <img src="/assets/img1.jpg" alt="图片2">
+          <img src="/assets/img1.jpg" alt="图片3">
+          
+        </div>
+        <div class="right-section">
+          <h3>描述</h3>
+          <h1>SMARTsoft Clock <a href="https://github.com/SMARTsoft-since-2019/SmartsoftClock/releases/tag/3.5a"><img alt="" src="https://img.shields.io/badge/release-3.5a-34c552.svg" /></a></h1>
+    <p>Latest Build: 3.5a released on September 23, 2023</p>
+    <h3>How to use</h3>
+    <ul>
+    <li>Choose the appropriate version (x86/x64) and download.</li>
+    <li>SMARTsoft Clock is single-file and click-to-run without installation.</li>
+    <li>Customize the clock using hotkeys (instructions displayed on first startup and on title bar).</li>
+    <li>For any issues, fell free to submit them or join our QQ group: 625998847.</li>
+    </ul>
+    <hr />
+    <h1>慧软钟 <a href="https://github.com/SMARTsoft-since-2019/SmartsoftClock/releases/tag/3.5a"><img alt="" src="https://img.shields.io/badge/release-3.5a-34c552.svg" /></a></h1>
+    <p>最新稳定版： 3.5a 发布于2023年9月23日</p>
+    <h3>使用方法：</h3>
+    <ul>
+    <li>选择32位(x86)或64位的版本下载。</li>
+    <li>即点即用，无需安装。</li>
+    <li>使用键盘快捷键自定义时钟（快捷键说明会在首次启动时弹窗和在标题栏上展示）</li>
+    <li>如有任何问题，欢迎提交Issue或加入我们的 QQ 群：625998847。</li>
+    </ul>
+    
+        </div>
+        <div class="right-section">
+          <h3>系统要求</h3>
+        </div>
+        <div class="right-section">
+          <h3>其他信息</h3>
+        </div>
+  </div>
+
     <div class="three-columns">
         <div class="column">
             <h3>新增内容</h3>
@@ -217,83 +287,6 @@
             <p>与 SMARTsoft 联系</p>
         </div>
     </div>
-    <div class="slideshow-container">
-        <div class="slide">
-            <img src="/assets/img1.jpg" alt="Slide 1">
-            <div class="slide-content">
-                <h2>Slide 1 Title</h2>
-                <p>Slide 1 Description</p>
-                <button>Slide 1 Button</button>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="/assets/img2.jpg" alt="Slide 2">
-            <div class="slide-content">
-                <h2>Slide 2 Title</h2>
-                <p>Slide 2 Description</p>
-                <button>Slide 2 Button</button>
-            </div>
-        </div>
-        <!-- Add more slides here -->
-    </div>
-    <script>showSlides();</script>
-
-    <div class="feature-section">
-        <h3>Feature Section 1</h3>
-        <div class="feature-box">
-            <img src="/assets/favicon.png" alt="Feature 3 Image" height="10" width="auto">
-            <div class="feature-box-content">
-                <p>Feature 1 Description</p>
-                <p>More details about feature 1</p>
-            </div>
-        </div>
-        <div class="feature-box">
-            <img src="/assets/favicon.png" alt="Feature 3 Image" height="10" width="auto">
-            <div class="feature-box-content">
-                <p>Feature 2 Description</p>
-                <p>More details about feature 2</p>
-            </div>
-        </div>
-        <!-- Add more feature boxes here -->
-    </div>
-
-    <div class="feature-section">
-        <h3>Feature Section 2</h3>
-        <div class="feature-box">
-            <img src="/assets/favicon.png" alt="Feature 3 Image" height="10" width="auto">
-            <div class="feature-box-content">
-                <p>Feature 3 Description</p>
-                <p>More details about feature 3</p>
-            </div>
-        </div>
-        <div class="feature-box">
-           <img src="/assets/favicon.png" alt="Feature 3 Image" height="10" width="auto">
-            <div class="feature-box-content">
-                <p>Feature 4 Description</p>
-                <p>More details about feature 4</p>
-            </div>
-        </div>
-        <!-- Add more feature boxes here -->
-    </div>
-    <div class="three-columns">
-        <div class="column">
-            <h3>新增内容</h3>
-            <p>SMARTsoft Clock</p>
-            <p>SMARTsoft Benchmark</p>
-            <p>SMARTsoft Snake</p>
-        </div>
-        <div class="column">
-            <h3>SMARTsoft Store</h3>
-            <p>下载中心</p>
-        </div>
-        <div class="column">
-            <h3>公司</h3>
-            <p>招贤纳士</p>
-            <p>关于 SMARTsoft</p>
-            <p>与 SMARTsoft 联系</p>
-        </div>
-    </div>
-</div>
 </div>
 
 <div class="footer">
