@@ -131,6 +131,24 @@
         bottom: 0;
         width: 100%;
     }
+    .icon-container {
+        display: flex;
+        align-items: center; /* 垂直对齐 */
+      }
+    
+      .icon-container img {
+        width: 50px; /* 正方形图标，设置宽度，高度自动调整 */
+        height: auto;
+        margin-right: 10px; /* 图标与文字之间的间距 */
+      }
+    
+      .icon-container p {
+        margin: 0; /* 移除默认外边距 */
+      }
+    
+      .icon-container button {
+        margin-top: 5px; /* 按钮与上面文字之间的间距 */
+      }
 </style>
 <script>
     var slideIndex = 0;
@@ -167,7 +185,12 @@
     <p>Menu Item 2</p>
     <p>Menu Item 3</p>
 </div>
-
+<div class="icon-container">
+  <img src="/assets/favicon.png" alt="大图标" height="50px" width="auto"> <!-- 替换为您的图标图片路径 -->
+  <p>这是文字</p>
+  <button>按钮</button>
+</div>
+    
 <div class="main-content">
     <div class="three-columns">
         <div class="column">
