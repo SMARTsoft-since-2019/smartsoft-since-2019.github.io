@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/favicon.ico" />
+<title>SMARTsoft - 应用和游戏</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    .navbar {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        /*display: flex;*/
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-icon {
+        display: inline-block;
+        transform: translateY(7.5px);
+    }
+    .navbar-text {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    .navbar-buttons {
+        display: inline-block;
+    }
+    .navbar-buttons a {
+        margin-left: 10px;
+        color: white; 
+        text-decoration: none;
+    }
+    .navbar-buttons a:hover {
+        text-decoration: underline;
+    }
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 40px;
+        background-color: #f4f4f4;
+        padding: 20px;
+        width: 200px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .sidebar h3 {
+        margin-top: 0;
+    }
+    .main-content {
+        margin-top: 70px; /* Adjust according to navbar height */
+        padding: 20px;
+        margin-left: 220px; /* Ensure main content is to the right of sidebar */
+    }
+    .slideshow-container {
+        position: relative;
+        max-width: 100%;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .slide {
+        display: none;
+    }
+    .slide img {
+        width: 100%;
+    }
+    .slide-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+    .slide-content h2 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+    .slide-content p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    .slide-content button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    .feature-section {
+        margin-bottom: 20px;
+    }
+    .feature-section h3 {
+        margin-top: 0;
+    }
+    .feature-box {
+        display: inline-block;
+        margin-top: 10px;
+    }
+    .feature-box img {
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
+    }
+    .feature-box-content {
+        flex: 1;
+    }
+    .three-columns {
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .column {
+        flex: 1;
+        padding: 0 10px;
+    }
+    .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+     .container {
+    display: flex;
+    align-items: flex-start; /* 图标与文字对齐 */
+  }
+
+  .icon {
+    width: 100px; /* 正方形图标的大小 */
+    height: 100px;
+  }
+
+  .text-button-container {
+    display: flex;
+    flex-direction: column; /* 文字与按钮竖直排列 */
+    margin-left: 10px; /* 与图标保持一定间距 */
+  }
+
+  .text-button-container p {
+    margin: 0; /* 移除默认的外边距 */
+  }
+
+  .text-button-container button {
+    margin-top: 5px; /* 按钮与文字之间的间距 */
+  }
+    .right-content {
+    overflow-y: auto;
+  }
+
+  .image-gallery {
+    display: flex; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+  }
+
+  .image-gallery img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px; 
+  }
+
+  
+  .image-gallery img:last-child {
+    margin-right: 0;
+  }
+
+  .right-section {
+    vertical-align: top; 
+    margin-right: 20px; 
+    white-space: normal; 
+  }
+
+</style>
+<script>
+    var slideIndex = 0;
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("slide");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1;}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+    function x64download(){
+        window.open("/assets/PortableBenchmark/SMARTsoftPortableBenchmark_x64.exe"); // 将"https://www.example.com"替换为要打开的网址
+    }
+    function x86download(){
+        window.open("/assets/PortableBenchmark/SMARTsoftPortableBenchmark_x86.exe"); // 将"https://www.example.com"替换为要打开的网址
+    }
+</script>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="navbar-icon"><img src="/assets/favicon.png" alt="Icon" height="auto" width="30px"></div>
+    <div class="navbar-text"><h3>SMARTsoft - 应用和游戏</h3></div>
+    <div class="navbar-buttons">
+        <a href="/">首页</a>
+        <a href="/software-download">软件下载</a>
+        <a href="/about">关于</a>
+    </div>
+</div>
+
+
+<div class="sidebar">
+    <h3>SMARTsoft Portable Benchmark</h3>
+    <p>屏幕截图</p>
+    <p>描述</p>
+    <p>系统要求</p>
+    <p>其他信息</p>
+</div>
+    
+<div class="main-content">
+    <div class="container">
+      <img class="icon" src="/assets/favicon.png" alt="大图标" style="transform: translateY(15px);"> <!-- 替换为您的图标图片路径 -->
+      <div class="text-button-container">
+        <h1>SMARTsoft Portable Benchmark</h1>
+        <div sytle="display: inline-block">
+            <button onclick="x64download()" style=" height: 40px;width: 200px;transform: translateX(30px);"><h3 style="transform: translateY(-8px);">获取x64版</h3></button>
+            <button onclick="x86download()" style=" height: 40px;width: 200px;transform: translateX(30px);"><h3 style="transform: translateY(-8px);">获取x86版</h3></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-content">
+        <div class="right-section">
+          <h3>屏幕截图</h3>
+        </div>
+        <div class="image-gallery">
+          <img src="/assets/img1.jpg" alt="图片1">
+          <img src="/assets/img1.jpg" alt="图片2">
+          <img src="/assets/img1.jpg" alt="图片3">
+    
+        </div>
+        <div class="right-section">
+          <h3>系统要求</h3>
+        </div>
+        <div class="right-section">
+          <h3>其他信息</h3>
+        </div>
+  </div>
+
+    <div class="three-columns">
+        <div class="column">
+            <h3>新增内容</h3>
+            <p>SMARTsoft Clock</p>
+            <p>SMARTsoft Portable Benchmark</p>
+            <p>SMARTsoft Snake</p>
+        </div>
+        <div class="column">
+            <h3>SMARTsoft Store</h3>
+            <p>下载中心</p>
+        </div>
+        <div class="column">
+            <h3>公司</h3>
+            <p>招贤纳士</p>
+            <p>关于 SMARTsoft</p>
+            <p>与 SMARTsoft 联系</p>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    © SMARTsoft 2024
+</div>
+
+</body>
+</html>
