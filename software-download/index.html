@@ -132,6 +132,13 @@
         bottom: 0;
         width: 100%;
     }
+    .black-link {
+        color: black; 
+        text-decoration: none;
+    }
+    .black-link:hover {
+        text-decoration: underline;
+    }
 </style>
 <script>
     var slideIndex = 0;
@@ -167,12 +174,13 @@
 
 <div class="sidebar">
     <h3>导航栏</h3>
-    <p>新增</p>
-    <p>应用</p>
-    <p>游戏</p>
+    <a href="#news" class="black-link">新增</a>
+    <a href="#apps" class="black-link">应用</a>
+    <a href="#games" class="black-link">游戏</a>
 </div>
 
 <div class="main-content">
+    <h3 id="news">新增内容</h3>
     <div class="slideshow-container">
         <div class="slide">
             <img src="/assets/img1.jpg" alt="Slide 1">
@@ -195,7 +203,7 @@
     <script>showSlides();</script>
 
     <div class="feature-section">
-        <h3>应用</h3>
+        <h3 id="apps">应用</h3>
         <a href="/software-download/smartsoftclock" sytle="text-decoration: none;">
             <div class="feature-box">
                 <img src="/assets/favicon.png" alt="Feature 3 Image" height="10" width="auto">
@@ -218,7 +226,7 @@
     </div>
 
     <div class="feature-section">
-        <h3>游戏</h3>
+        <h3 id="games">游戏</h3>
         <div class="feature-box">
             <img src="/assets/favicon.png" alt="Feature 3 Image" height="10" width="auto">
             <div class="feature-box-content">
