@@ -157,6 +157,10 @@
     function redirectToPage(url){
         window.location.href = "https://smartsoft-since-2019.github.io/software-download/"+url;
     }
+    function GotoApps(){
+        var Apps=document.querySelector('#apps');
+        Apps.scrollIntoView();
+    }
 </script>
 </head>
 <body>
@@ -175,9 +179,9 @@
 <div class="sidebar">
     <h3>导航栏</h3>
     <a href="#news" class="black-link">新增</a>
-    <br>
-    <a href="#apps" class="black-link">应用</a>
-    <br>
+    <br><br>
+    <a onclick="GotoApps()" class="black-link">应用</a>
+    <br><br>
     <a href="#games" class="black-link">游戏</a>
 </div>
 
