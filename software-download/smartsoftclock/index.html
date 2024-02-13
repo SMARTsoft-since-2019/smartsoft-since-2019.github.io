@@ -182,6 +182,14 @@
     white-space: normal; 
   }
 
+    .black-link {
+        color: black; 
+        text-decoration: none;
+    }
+    .black-link:hover {
+        text-decoration: underline;
+    }
+
 </style>
 <script>
     var slideIndex = 0;
@@ -220,10 +228,10 @@
 
 <div class="sidebar">
     <h3>SMARTsoft Clock</h3>
-    <p>屏幕截图</p>
-    <p>描述</p>
-    <p>系统要求</p>
-    <p>其他信息</p>
+    <a href="#screenshot" class="blakc-link"><p>屏幕截图</p></a>
+    <a href="#description" class="blakc-link"><p>描述</p></a>
+    <a href="#system" class="blakc-link"><p>系统要求</p></a>
+    <a href="#details" class="blakc-link"><p>其他信息</p></a>
 </div>
     
 <div class="main-content">
@@ -239,7 +247,7 @@
     </div>
 
     <div class="right-content">
-        <div class="right-section">
+        <div class="right-section" id="screenshot">
           <h3>屏幕截图</h3>
         </div>
         <div class="image-gallery">
@@ -248,7 +256,7 @@
           <img src="/assets/img1.jpg" alt="图片3">
           
         </div>
-        <div class="right-section">
+        <div class="right-section" id="description">
           <h3>描述</h3>
           <h1>SMARTsoft Clock <a href="https://github.com/SMARTsoft-since-2019/SmartsoftClock/releases/tag/3.5a"><img alt="" src="https://img.shields.io/badge/release-3.5a-34c552.svg" /></a></h1>
     <p>Latest Build: 3.5a released on September 23, 2023</p>
@@ -271,10 +279,10 @@
     </ul>
     
         </div>
-        <div class="right-section">
+        <div class="right-section" id="system">
           <h3>系统要求</h3>
         </div>
-        <div class="right-section">
+        <div class="right-section" id="details">
           <h3>其他信息</h3>
         </div>
   </div>
@@ -282,19 +290,19 @@
     <div class="three-columns">
         <div class="column">
             <h3>新增内容</h3>
-            <p>SMARTsoft Clock</p>
-            <p>SMARTsoft Benchmark</p>
-            <p>SMARTsoft Snake</p>
+            <a href="/software-download/smartsoftclock" class="black-link"><p>SMARTsoft Clock</p></a>
+            <a href="/software-download/protablebenchmark" class="black-link"><p>SMARTsoft Portable Benchmark</p></a>
+            <a href="/software-download" class="black-link"><p>SMARTsoft Snake</p></a>
         </div>
         <div class="column">
             <h3>SMARTsoft Store</h3>
-            <p>下载中心</p>
+            <a href="/software-download" class="black-link"><p>下载中心</p></a>
         </div>
         <div class="column">
             <h3>公司</h3>
-            <p>招贤纳士</p>
+            <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=0vc2YO5tlBfAJ42NcyN8mxfgtZv2IHHn&authKey=gts8wB1rE%2FCCPQjLiSFrlPwIAaVwSBYqXV8UvuvKMvHe4%2FUdERmMnXqQIVlPY1%2Fw&noverify=0&group_code=625998847" class="black-link"><p>招贤纳士</p></a>
             <p>关于 SMARTsoft</p>
-            <p>与 SMARTsoft 联系</p>
+            <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=0vc2YO5tlBfAJ42NcyN8mxfgtZv2IHHn&authKey=gts8wB1rE%2FCCPQjLiSFrlPwIAaVwSBYqXV8UvuvKMvHe4%2FUdERmMnXqQIVlPY1%2Fw&noverify=0&group_code=625998847" class="black-link"><p>与 SMARTsoft 联系</p></a>
         </div>
     </div>
 </div>
