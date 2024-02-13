@@ -1,55 +1,182 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
- <link rel="stylesheet" type="text/css" href="/css/about.css">
- <link rel="shortcut icon" href="/assets/favicon.ico" />
-<title>SMARTsoft - 关于</title>
- <style>
-        .black-link {
-            color: black; 
-            text-decoration: none;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/favicon.ico" />
+<title>SMARTsoft - 应用和游戏</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    .navbar {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        /*display: flex;*/
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-icon {
+        display: inline-block;
+        transform: translateY(7.5px);
+    }
+    .navbar-text {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    .navbar-buttons {
+        display: inline-block;
+    }
+    .navbar-buttons a {
+        margin-left: 10px;
+        color: white; 
+        text-decoration: none;
+    }
+    .navbar-buttons a:hover {
+        text-decoration: underline;
+    }
+    .main-content {
+        margin-top: 70px; /* Adjust according to navbar height */
+        padding: 20px;
+    }
+    .slideshow-container {
+        position: relative;
+        max-width: 100%;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .slide {
+        display: none;
+    }
+    .slide img {
+        width: 100%;
+    }
+    .slide-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+    .slide-content h2 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+    .slide-content p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    .slide-content button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    .three-columns {
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .column {
+        flex: 1;
+        padding: 0 10px;
+    }
+    .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    .black-link {
+        color: black; 
+        text-decoration: none;
+    }
+    .black-link:hover {
+        text-decoration: underline;
+    }
+    .text {
+      color: #f2f2f2;
+      font-size: 30px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 50%;
+      width: 100%;
+      left:10%;
+    }
+</style>
+<script>
+    var slideIndex = 0;
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("slide");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
         }
-        
-        .black-link:hover {
-            color: gray;
-        }
-        .no-wrap {
-            display: inline; 
-        }
-    </style>
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1;}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+    function redirectToPage(url){
+        window.location.href = "https://smartsoft-since-2019.github.io/software-download/"+url;
+    }
+</script>
 </head>
- 
 <body>
-<div id="container" style="width:100%;height:100%">
 
-<div id="header">
-<img src="/assets/favicon.png" alt="SMARTsoft ICO" width="3%" height="3%" class="no-wrap">
-<h1 style="margin-bottom:0;height:12%;display: inline;" class="no-wrap">SMARTsoft - 应用和游戏</h1></div>
-
-<div id="menu" style="height:80%;width:10%;float:left;">
-<b>菜单</b><br>
-<a href="/" class="black-link">首页</a>
-<br>
-<a href="/software-download" class="black-link">软件下载</a>
-<br>
-<a href="#" class="black-link">关于</a>
+<div class="navbar">
+    <div class="navbar-icon"><img src="/assets/favicon.png" alt="Icon" height="auto" width="30px"></div>
+    <div class="navbar-text"><h3>SMARTsoft - 应用和游戏</h3></div>
+    <div class="navbar-buttons">
+        <a href="#">首页</a>
+        <a href="/software-download">软件下载</a>
+        <a href="/about">关于</a>
+    </div>
 </div>
 
-<div id="content" style="height:80%;width:90%;float:left;">
- <div class="slideshow-container">
-  <div class="mySlides fade">
-    <img decoding="async" src="/assets/RE4HQox.png" style="width:100%">
-    <div class="text">SMARTsoft 以 为使命</div>
-  </div>
+<div class="main-content">
+    <div>
+         <img decoding="async" src="/assets/RE4HQox.png" style="width:100%">
+         <div class="text">SMARTsoft 以 为使命</div>
+    </div>
+    <div class="three-columns">
+        <div class="column">
+            <h3>新增内容</h3>
+            <a href="/software-download/smartsoftclock" class="black-link"><p>SMARTsoft Clock</p></a>
+            <a href="/software-download/protablebenchmark" class="black-link"><p>SMARTsoft Portable Benchmark</p></a>
+            <a href="/software-download" class="black-link"><p>SMARTsoft Snake</p></a>
+        </div>
+        <div class="column">
+            <h3>SMARTsoft Store</h3>
+            <a href="/software-download" class="black-link"><p>下载中心</p></a>
+        </div>
+        <div class="column">
+            <h3>公司</h3>
+            <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=0vc2YO5tlBfAJ42NcyN8mxfgtZv2IHHn&authKey=gts8wB1rE%2FCCPQjLiSFrlPwIAaVwSBYqXV8UvuvKMvHe4%2FUdERmMnXqQIVlPY1%2Fw&noverify=0&group_code=625998847" class="black-link"><p>招贤纳士</p></a>
+            <p>关于 SMARTsoft</p>
+            <a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=0vc2YO5tlBfAJ42NcyN8mxfgtZv2IHHn&authKey=gts8wB1rE%2FCCPQjLiSFrlPwIAaVwSBYqXV8UvuvKMvHe4%2FUdERmMnXqQIVlPY1%2Fw&noverify=0&group_code=625998847" class="black-link"><p>与 SMARTsoft 联系</p></a>
+        </div>
+    </div>
 </div>
 
-<div id="footer" style="clear:both;text-align:center">
-© SMARTsoft 2024</div>
-
- <script src="/js/mainpage.js"></script>
-
+<div class="footer">
+    © SMARTsoft 2024
 </div>
+
 </body>
- 
 </html>
