@@ -198,8 +198,16 @@
       if (target.classList.contains("suggestion-item")) {
         // 获取目标元素的文本，赋值给搜索框，并隐藏建议列表
         var text = target.textContent;
-        searchInput.value = text;
-        suggestionList.style.display = "none";
+        //searchInput.value = text;
+        //suggestionList.style.display = "none";
+        switch (text){
+          case "SMARTsoft Clock":
+            window.location.href = "/software-download/smartsoftclock";
+            break;
+          case "SMARTsoft Portable Benchmark":
+            window.location.href = "/software-download/protablebenchmark";
+            break;
+        }
       }
     });
   </script>
