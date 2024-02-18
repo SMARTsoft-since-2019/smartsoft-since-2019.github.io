@@ -240,6 +240,30 @@
     .suggestion-item.active {
       background-color: #ddd;
     }
+    .download-button{
+  height: 46px;
+  border: none;
+  color: white;
+  background-color: #0067c0;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px #003d7380;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  height: 46px !important;
+  width: 180px !important;
+}
+.download-button:hover{
+  background-color: #1a76c6;
+  box-shadow: 0 1px 1px #0f487980;
+  transition: .15s ease-out;
+}
+.download-button:active{
+  color: #c2daf0;
+  background-color: #3284cc;
+  box-shadow: none;
+  transition: .1s;
+}
 
 </style>
 <script>
@@ -295,8 +319,8 @@
       <div class="text-button-container">
         <h1 class="productname productname-as-title">SMARTsoft Clock</h1>
         <div sytle="display: inline-block">
-            <button class="button download-button" onclick="x64download()" style=" height: 40px;width: 200px;transform: translateX(30px);"><h3 style="transform: translateY(-8px);">获取x64版</h3></button>
-            <button class="button download-button" onclick="x86download()" style=" height: 40px;width: 200px;transform: translateX(30px);"><h3 style="transform: translateY(-8px);">获取x86版</h3></button>
+            <button class="button download-button" onclick="x64download()" style=" height: 40px;width: 200px;transform: translateX(30px);">获取x64版</button>
+            <button class="button download-button" onclick="x86download()" style=" height: 40px;width: 200px;transform: translateX(30px);">获取x86版</button>
         </div>
       </div>
     </div>
