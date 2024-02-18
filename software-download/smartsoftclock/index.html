@@ -295,14 +295,14 @@
             return /macintosh|mac os x/i.test(navigator.userAgent);
         }();
         if (agent.indexOf("win32") >= 0 || agent.indexOf("wow32") >= 0) {
-            console("32位");
+            console.log("32位");
             window.open("/assets/Clock/SMARTsoftClock_x86.exe");
         }else if (agent.indexOf("win64") >= 0 || agent.indexOf("wow64") >= 0) {
-            console("64位");
+            console.log("64位");
             window.open("/assets/Clock/SMARTsoftClock_x64.exe");
         }
         if(isMac){
-            console("这是mac系统");
+            console.log("这是mac系统");
         }
     }
 </script>
