@@ -283,26 +283,20 @@
         slides[slideIndex-1].style.display = "block";
         setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
-    function x64download(){
+    /*function x64download(){
         window.open("/assets/Clock/SMARTsoftClock_x64.exe");
     }
     function x86download(){
         window.open("/assets/Clock/SMARTsoftClock_x86.exe");
-    }
+    }*/
     function autoDownload(){
         var agent = navigator.userAgent.toLowerCase();
-        var isMac = function() {
-            return /macintosh|mac os x/i.test(navigator.userAgent);
-        }();
         if (agent.indexOf("win32") >= 0 || agent.indexOf("wow32") >= 0) {
-            console.log("32位");
             window.open("/assets/Clock/SMARTsoftClock_x86.exe");
         }else if (agent.indexOf("win64") >= 0 || agent.indexOf("wow64") >= 0) {
-            console.log("64位");
             window.open("/assets/Clock/SMARTsoftClock_x64.exe");
-        }
-        if(isMac){
-            console.log("这是mac系统");
+        }else{
+            window.open("/assets/Clock/SMARTsoftClock_x64.exe")
         }
     }
 </script>
@@ -338,8 +332,6 @@
       <div class="text-button-container">
         <h1 class="productname productname-as-title">SMARTsoft Clock</h1>
         <div sytle="display: inline-block">
-            <button class="button download-button" onclick="x64download()">获取x64版</button>
-            <button class="button download-button" onclick="x86download()">获取x86版</button>
             <button class="button download-button" onclick="autoDownload()">获取</button>
         </div>
       </div>
