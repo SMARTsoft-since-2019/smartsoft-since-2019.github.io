@@ -366,5 +366,164 @@
     © SMARTsoft 2024
 </div>
 
+    <script>
+    // 获取元素
+    var searchInput = document.getElementById("search-input");
+    var suggestionList = document.getElementById("suggestion-list");
+
+    // 定义一个模拟的数据源，可以替换为真实的后台接口
+    var dataSource = [
+      "SMARTsoft Clock",
+      "SMARTsoft Portable Benchmark",
+    ];
+
+    // 定义一个函数，根据输入的关键词，返回匹配的建议数组
+    function getSuggestions(keyword) {
+      // 如果关键词为空，返回空数组
+      if (!keyword) {
+        return [];
+      }
+      // 将关键词转为小写，方便比较
+      keyword = keyword.toLowerCase();
+      // 定义一个空数组，用于存放匹配的建议
+      var suggestions = [];
+      // 遍历数据源，找出包含关键词的项，加入到建议数组中
+      for (var i = 0; i < dataSource.length; i++) {
+        var item = dataSource[i];
+        // 将数据项转为小写，方便比较
+        item = item.toLowerCase();
+        // 如果数据项包含关键词，加入到建议数组中
+        if (item.includes(keyword)) {
+          suggestions.push(dataSource[i]);
+        }
+      }
+      // 返回建议数组
+      return suggestions;
+    }
+
+    // 定义一个函数，根据建议数组，渲染建议列表
+    function renderSuggestions(suggestions) {
+      // 清空建议列表的内容
+      suggestionList.innerHTML = "";
+      // 如果建议数组为空，隐藏建议列表
+      if (suggestions.length === 0) {
+        suggestionList.style.display = "none";
+        return;
+      }
+      // 遍历建议数组，创建列表项，并添加到建议列表中
+      for (var i = 0; i < suggestions.length; i++) {
+        var suggestion = suggestions[i];
+        var li = document.createElement("li");
+        li.className = "suggestion-item";
+        li.textContent = suggestion;
+        suggestionList.appendChild(li);
+      }
+      // 显示建议列表
+      suggestionList.style.display = "block";
+    }
+
+    // 定义一个函数，根据索引，高亮某个建议项
+    function highlightSuggestion(index) {
+      // 获取所有的建议项
+      var items = suggestionList.querySelectorAll(".suggestion-item");
+      // 遍历所有的建议项，移除高亮的类名
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        item.classList.remove("active");
+      }
+      // 如果索引有效，给对应的建议项添加高亮的类名
+      if (index >= 0 && index < items.length) {
+        var item = items[index];
+        item.classList.add("active");
+      }
+    }
+
+    // 定义一个函数，根据索引，选择某个建议项
+    function selectSuggestion(index) {
+      // 获取所有的建议项
+      var items = suggestionList.querySelectorAll(".suggestion-item");
+      // 如果索引有效，获取对应的建议项的文本，赋值给搜索框，并隐藏建议列表
+      if (index >= 0 && index < items.length) {
+        var item = items[index];
+        var text = item.textContent;
+        searchInput.value = text;
+        suggestionList.style.display = "none";
+      }
+    }
+
+    // 定义一个变量，用于存放当前高亮的建议项的索引
+    var currentIndex = -1;
+
+    // 给搜索框添加输入事件的监听
+    searchInput.addEventListener("input", function (e) {
+      // 获取搜索框的输入值
+      var value = e.target.value;
+      // 根据输入值，获取匹配的建议数组
+      var suggestions = getSuggestions(value);
+      // 根据建议数组，渲染建议列表
+      renderSuggestions(suggestions);
+      // 重置当前高亮的建议项的索引
+      currentIndex = -1;
+    });
+
+    // 给搜索框添加键盘事件的监听
+    searchInput.addEventListener("keydown", function (e) {
+      // 获取按下的键的代码
+      var keyCode = e.keyCode;
+      // 如果按下的是上箭头键
+      if (keyCode === 38) {
+        // 阻止默认行为，避免光标移动
+        e.preventDefault();
+        // 如果当前索引大于等于0，减1
+        if (currentIndex >= 0) {
+          currentIndex--;
+        }
+        // 根据当前索引，高亮对应的建议项
+        highlightSuggestion(currentIndex);
+      }
+      // 如果按下的是下箭头键
+      else if (keyCode === 40) {
+        // 阻止默认行为，避免光标移动
+        e.preventDefault();
+        // 获取所有的建议项
+        var items = suggestionList.querySelectorAll(".suggestion-item");
+        // 如果当前索引小于建议项的数量，加1
+        if (currentIndex < items.length - 1) {
+          currentIndex++;
+        }
+        // 根据当前索引，高亮对应的建议项
+        highlightSuggestion(currentIndex);
+      }
+      // 如果按下的是回车键
+      else if (keyCode === 13) {
+        // 阻止默认行为，避免表单提交
+        e.preventDefault();
+        // 根据当前索引，选择对应的建议项
+        selectSuggestion(currentIndex);
+      }
+    });
+
+    // 给建议列表添加点击事件的监听
+    suggestionList.addEventListener("click", function (e) {
+      // 获取点击的目标元素
+      var target = e.target;
+      // 如果目标元素是建议项
+      if (target.classList.contains("suggestion-item")) {
+        // 获取目标元素的文本，赋值给搜索框，并隐藏建议列表
+        var text = target.textContent;
+        //searchInput.value = text;
+        //suggestionList.style.display = "none";
+        switch (text){
+          case "SMARTsoft Clock":
+            window.location.href = "/software-download/smartsoftclock";
+            break;
+          case "SMARTsoft Portable Benchmark":
+            window.location.href = "/software-download/protablebenchmark";
+            break;
+        }
+      }
+    });
+  </script>
+
 </body>
 </html>
