@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="/assets/favicon.ico" />
+<title>SMARTsoft - 应用和游戏</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    .navbar {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        /*display: flex;*/
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-icon {
+        display: inline-block;
+        transform: translateY(7.5px);
+    }
+    .navbar-text {
+        display: inline-block;
+        margin: 0 10px;
+    }
+    .navbar-buttons {
+        display: inline-block;
+    }
+    .navbar-buttons a {
+        margin-left: 10px;
+        color: white; 
+        text-decoration: none;
+    }
+    .navbar-buttons a:hover {
+        text-decoration: underline;
+    }
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 40px;
+        background-color: #f4f4f4;
+        padding: 20px;
+        width: 200px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .sidebar h3 {
+        margin-top: 0;
+    }
+    .main-content {
+        margin-top: 70px; /* Adjust according to navbar height */
+        padding: 20px;
+        margin-left: 220px; /* Ensure main content is to the right of sidebar */
+    }
+    .slideshow-container {
+        position: relative;
+        max-width: 100%;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .slide {
+        display: none;
+    }
+    .slide img {
+        width: 100%;
+    }
+    .slide-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+    }
+    .slide-content h2 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+    .slide-content p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    .slide-content button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    .feature-section {
+        margin-bottom: 20px;
+    }
+    .feature-section h3 {
+        margin-top: 0;
+    }
+    .feature-box {
+        display: inline-block;
+        margin-top: 10px;
+    }
+    .feature-box img {
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
+    }
+    .feature-box-content {
+        flex: 1;
+    }
+    .three-columns {
+        display: flex;
+        margin-bottom: 20px;
+    }
+    .column {
+        flex: 1;
+        padding: 0 10px;
+    }
+    .footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+     .container {
+    display: flex;
+    align-items: flex-start; /* 图标与文字对齐 */
+  }
+
+  .icon {
+    width: 100px; /* 正方形图标的大小 */
+    height: 100px;
+  }
+
+  .text-button-container {
+    display: flex;
+    flex-direction: column; /* 文字与按钮竖直排列 */
+    margin-left: 10px; /* 与图标保持一定间距 */
+  }
+
+  .text-button-container p {
+    margin: 0; /* 移除默认的外边距 */
+  }
+
+  .text-button-container button {
+    margin-top: 5px; /* 按钮与文字之间的间距 */
+  }
+    .right-content {
+    overflow-y: auto;
+  }
+
+  .image-gallery {
+    display: flex; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+  }
+
+  .image-gallery img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px; 
+  }
+
+  
+  .image-gallery img:last-child {
+    margin-right: 0;
+  }
+
+  .right-section {
+    vertical-align: top; 
+    margin-right: 20px; 
+    white-space: normal; 
+  }
+
+    .black-link {
+        color: black; 
+        text-decoration: none;
+    }
+    .black-link:hover {
+        text-decoration: underline;
+    }
+
+    /* 定义搜索框的样式 */
+    .search-box {
+      display: inline-block;
+      position: relative;
+      width: 300px;
+      margin: 20px auto;
+    }
+
+    .search-input {
+      background-color: #333;
+      color: white;
+      width: 100%;
+      height: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    /* 定义建议列表的样式 */
+    .suggestion-list {
+      color: white;
+      background-color: #333;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
+    }
+
+    .suggestion-item {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .suggestion-item:hover {
+      background-color: #A9A9A9;
+    }
+
+    .suggestion-item.active {
+      background-color: #ddd;
+    }
+</style>
+<script>
+    var slideIndex = 0;
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("slide");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1;}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+    /*function x64download(){
+        window.open("/assets/PortableBenchmark/SMARTsoftPortableBenchmark_x64.exe"); // 将"https://www.example.com"替换为要打开的网址
+    }*/
+    function x86download(){
+        window.open("/assets/PortableBenchmark/SMARTsoftPortableBenchmark.exe"); // 将"https://www.example.com"替换为要打开的网址
+    }
+</script>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="navbar-icon"><img src="/assets/favicon.png" alt="Icon" height="auto" width="30px"></div>
+    <div class="navbar-text"><h3>SMARTsoft - 应用和游戏</h3></div>
+    <div class="navbar-buttons">
+        <a href="/">首页</a>
+        <a href="/software-download">软件下载</a>
+        <a href="/about">关于</a>
+    </div>
+    <div class="search-box">
+    <input type="text" class="search-input" id="search-input" placeholder="请输入搜索内容" />
+    <ul class="suggestion-list" id="suggestion-list"></ul>
+  </div>
+</div>
+
+
+<div class="sidebar">
+    <h3>SMARTsoft Portable Benchmark</h3>
+    <a href="#screenshot" class="black-link"><p>屏幕截图</p></a>
+    <a href="#description" class="black-link"><p>描述</p></a>
+    <a href="#system" class="black-link"><p>系统要求</p></a>
+    <a href="#details" class="black-link"><p>其他信息</p></a>
+</div>
+    
+<div class="main-content">
+    <div class="container">
+      <img class="icon" src="/assets/spb_favicon.png" alt="大图标" style="transform: translateY(15px);"> <!-- 替换为您的图标图片路径 -->
+      <div class="text-button-container">
+        <h1>SMARTsoft Portable Benchmark</h1>
+        <button onclick="x86download()" style=" height: 40px;width: 200px;transform: translateX(30px);"><h3 style="transform: translateY(-8px);">获取x86版</h3></button>
+      </div>
+    </div>
+
+    <div class="right-content">
+        <div class="right-section" id="screenshot">
+          <h3>屏幕截图</h3>
+        </div>
+        <div class="image-gallery">
+          <img src="/assets/PortableBenchmark/image.png" alt="图片1">
+          <img src="/assets/PortableBenchmark/image.png" alt="图片2">
+          <img src="/assets/PortableBenchmark/image.png" alt="图片3">
+    
+        </div>
+        <div class="right-section" id="description">
+          <h3>描述</h3>
+        </div>
+        <div class="right-section" id="system">
+          <h3>系统要求</h3>
+        </div>
+        <div class="right-section" id="details">
+          <h3>其他信息</h3>
+        </div>
+  </div>
+
+    <div class="three-columns">
+        <div class="column">
+            <h3>新增内容</h3>
+            <a href="/software-download/smartsoftclock" class="black-link"><p>SMARTsoft Clock</p></a>
+            <a href="/software-download/protablebenchmark" class="black-link"><p>SMARTsoft Portable Benchmark</p></a>
+            <a href="/software-download" class="black-link"><p>SMARTsoft Snake</p></a>
+        </div>
+        <div class="column">
+            <h3>SMARTsoft Store</h3>
+            <a href="/software-download" class="black-link"><p>下载中心</p></a>
+        </div>
+        <div class="column">
+            <h3>公司</h3>
+            <a href="/about" class="black-link"><p>招贤纳士</p></a>
+            <a href="/about" class="black-link"><p>关于 SMARTsoft</p></a>
+            <a href="/about" class="black-link"><p>与 SMARTsoft 联系</p></a>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    © SMARTsoft 2024
+</div>
+
+    <script>
+    // 获取元素
+    var searchInput = document.getElementById("search-input");
+    var suggestionList = document.getElementById("suggestion-list");
+
+    // 定义一个模拟的数据源，可以替换为真实的后台接口
+    var dataSource = [
+      "SMARTsoft Clock",
+      "SMARTsoft Portable Benchmark",
+    ];
+
+    // 定义一个函数，根据输入的关键词，返回匹配的建议数组
+    function getSuggestions(keyword) {
+      // 如果关键词为空，返回空数组
+      if (!keyword) {
+        return [];
+      }
+      // 将关键词转为小写，方便比较
+      keyword = keyword.toLowerCase();
+      // 定义一个空数组，用于存放匹配的建议
+      var suggestions = [];
+      // 遍历数据源，找出包含关键词的项，加入到建议数组中
+      for (var i = 0; i < dataSource.length; i++) {
+        var item = dataSource[i];
+        // 将数据项转为小写，方便比较
+        item = item.toLowerCase();
+        // 如果数据项包含关键词，加入到建议数组中
+        if (item.includes(keyword)) {
+          suggestions.push(dataSource[i]);
+        }
+      }
+      // 返回建议数组
+      return suggestions;
+    }
+
+    // 定义一个函数，根据建议数组，渲染建议列表
+    function renderSuggestions(suggestions) {
+      // 清空建议列表的内容
+      suggestionList.innerHTML = "";
+      // 如果建议数组为空，隐藏建议列表
+      if (suggestions.length === 0) {
+        suggestionList.style.display = "none";
+        return;
+      }
+      // 遍历建议数组，创建列表项，并添加到建议列表中
+      for (var i = 0; i < suggestions.length; i++) {
+        var suggestion = suggestions[i];
+        var li = document.createElement("li");
+        li.className = "suggestion-item";
+        li.textContent = suggestion;
+        suggestionList.appendChild(li);
+      }
+      // 显示建议列表
+      suggestionList.style.display = "block";
+    }
+
+    // 定义一个函数，根据索引，高亮某个建议项
+    function highlightSuggestion(index) {
+      // 获取所有的建议项
+      var items = suggestionList.querySelectorAll(".suggestion-item");
+      // 遍历所有的建议项，移除高亮的类名
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        item.classList.remove("active");
+      }
+      // 如果索引有效，给对应的建议项添加高亮的类名
+      if (index >= 0 && index < items.length) {
+        var item = items[index];
+        item.classList.add("active");
+      }
+    }
+
+    // 定义一个函数，根据索引，选择某个建议项
+    function selectSuggestion(index) {
+      // 获取所有的建议项
+      var items = suggestionList.querySelectorAll(".suggestion-item");
+      // 如果索引有效，获取对应的建议项的文本，赋值给搜索框，并隐藏建议列表
+      if (index >= 0 && index < items.length) {
+        var item = items[index];
+        var text = item.textContent;
+        searchInput.value = text;
+        suggestionList.style.display = "none";
+      }
+    }
+
+    // 定义一个变量，用于存放当前高亮的建议项的索引
+    var currentIndex = -1;
+
+    // 给搜索框添加输入事件的监听
+    searchInput.addEventListener("input", function (e) {
+      // 获取搜索框的输入值
+      var value = e.target.value;
+      // 根据输入值，获取匹配的建议数组
+      var suggestions = getSuggestions(value);
+      // 根据建议数组，渲染建议列表
+      renderSuggestions(suggestions);
+      // 重置当前高亮的建议项的索引
+      currentIndex = -1;
+    });
+
+    // 给搜索框添加键盘事件的监听
+    searchInput.addEventListener("keydown", function (e) {
+      // 获取按下的键的代码
+      var keyCode = e.keyCode;
+      // 如果按下的是上箭头键
+      if (keyCode === 38) {
+        // 阻止默认行为，避免光标移动
+        e.preventDefault();
+        // 如果当前索引大于等于0，减1
+        if (currentIndex >= 0) {
+          currentIndex--;
+        }
+        // 根据当前索引，高亮对应的建议项
+        highlightSuggestion(currentIndex);
+      }
+      // 如果按下的是下箭头键
+      else if (keyCode === 40) {
+        // 阻止默认行为，避免光标移动
+        e.preventDefault();
+        // 获取所有的建议项
+        var items = suggestionList.querySelectorAll(".suggestion-item");
+        // 如果当前索引小于建议项的数量，加1
+        if (currentIndex < items.length - 1) {
+          currentIndex++;
+        }
+        // 根据当前索引，高亮对应的建议项
+        highlightSuggestion(currentIndex);
+      }
+      // 如果按下的是回车键
+      else if (keyCode === 13) {
+        // 阻止默认行为，避免表单提交
+        e.preventDefault();
+        // 根据当前索引，选择对应的建议项
+        selectSuggestion(currentIndex);
+      }
+    });
+
+    // 给建议列表添加点击事件的监听
+    suggestionList.addEventListener("click", function (e) {
+      // 获取点击的目标元素
+      var target = e.target;
+      // 如果目标元素是建议项
+      if (target.classList.contains("suggestion-item")) {
+        // 获取目标元素的文本，赋值给搜索框，并隐藏建议列表
+        var text = target.textContent;
+        //searchInput.value = text;
+        //suggestionList.style.display = "none";
+        switch (text){
+          case "SMARTsoft Clock":
+            window.location.href = "/software-download/smartsoftclock";
+            break;
+          case "SMARTsoft Portable Benchmark":
+            window.location.href = "/software-download/protablebenchmark";
+            break;
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
