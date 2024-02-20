@@ -34,12 +34,12 @@
         display: inline-block;
     }
     .navbar-buttons a {
-        margin-left: 10px;
-        color: white; 
+        margin-left: 35px;
+        color: black; 
         text-decoration: none;
     }
     .navbar-buttons a:hover {
-        text-decoration: underline;
+        color: #005FB8;
     }
     .sidebar {
         position: fixed;
@@ -141,28 +141,45 @@
     }
     /* 定义搜索框的样式 */
     .search-box {
-      display: inline-block;
-      position: relative;
-      width: 300px;
-      margin: 20px auto;
-    }
+	height: 15px;
+    transform: translate(57px,7px);
+        width: 300px;
+		border: 2px solid #ccc;
+		padding: 5px;
+		display: inline-block;
+		align-items: center;
+		border-radius: 10px; /* 这会使搜索框的边角变得圆润 */
+	}
 
-    .search-input {
-      background-color: #333;
-      color: white;
-      width: 100%;
-      height: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-      outline: none;
-    }
+	.search-box:focus-within {
+	border-color: #005FB8;
+	}
+	.search-box input[type="text"] {
+	border: none;
+	padding: 5px;
+	margin-left: 5px;
+	outline: none;
+	width: 100%;
+	}
+	.search-icon {
+	transform: translate(3px, -4px);
+	background-image: url('search-icon.png'); /* Replace with your search icon image path */
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	}
+	.divider {
+	display: inline-block;
+    transform: translateY(-4px);
+	border-left: 1px solid #ccc;
+	margin: 0 5px;
+	height: 20px;
+	}
 
     /* 定义建议列表的样式 */
     .suggestion-list {
-      color: white;
-      background-color: #333;
+      color: blak;
+      background-color: white;
       position: absolute;
       top: 50px;
       left: 0;
@@ -183,7 +200,7 @@
     }
 
     .suggestion-item:hover {
-      background-color: #A9A9A9;
+      background-color: #ccc;
     }
 
     .suggestion-item.active {
@@ -267,12 +284,14 @@
     <div class="navbar-text"><h3>SMARTsoft - 应用和游戏</h3></div>
     <div class="navbar-buttons">
         <a href="/">首页</a>
-        <a href="#">软件下载</a>
+        <a href="/software-download" style="text-decoration: underline;color: #005FB8;text-underline-offset: 10px;text-decoration-thickness: 3px;">软件下载</a>
         <a href="/about">关于</a>
     </div>
     <div class="search-box">
-    <input type="text" class="search-input" id="search-input" placeholder="请输入搜索内容" />
-    <ul class="suggestion-list" id="suggestion-list"></ul>
+      <span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-search" viewBox="0 0 16 16" part="svg"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path> </svg></span>
+      <div class="divider"></div>
+      <input class="search-input" id="search-input" type="text" placeholder="搜索应用、游戏等" style="color: black;transform: translateY(-8px);display: inline-block;width: 240px;">
+        <ul class="suggestion-list" id="suggestion-list"></ul>
   </div>
 </div>
 
