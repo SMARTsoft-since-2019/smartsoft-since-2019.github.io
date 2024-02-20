@@ -396,6 +396,24 @@
       justify-content: center;
       align-items: center;
     }
+    .main-content{
+      position: relative;
+      margin-left: 150px;
+      padding-left: 70px;
+    }
+    .main-content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("/assets/Clock/avatar.ico");
+      background-size: cover;
+      background-attachment: fixed;
+      filter: blur(96px);
+      z-index: -1;
+    }
 </style>
 <script>
     var slideIndex = 0;
@@ -472,7 +490,7 @@
     
 <div class="main-content">
     <div class="container app-info-container">
-      <img class="icon product-icon product-icon-on-title" src="/assets/favicon.png" alt="大图标">
+      <img class="icon product-icon product-icon-on-title" src="/assets/Clock/avatar.ico" alt="大图标">
       <div class="text-button-container">
         <h1 class="title">SMARTsoft Clock</h1>
         <p class="subtitle">Experience unrivaled precision with the clock, perfectly tailored to fit your screen.</p>
