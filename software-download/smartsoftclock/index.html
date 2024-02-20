@@ -396,11 +396,11 @@
     function autoDownload(){
         var agent = navigator.userAgent.toLowerCase();
         if (agent.indexOf("win32") >= 0 || agent.indexOf("wow32") >= 0) {
-            window.open("/assets/Clock/SMARTsoftClock_x86.exe");
+            window.open("/assets/Clock/x86/SMARTsoftClock.exe");
         }else if (agent.indexOf("win64") >= 0 || agent.indexOf("wow64") >= 0) {
-            window.open("/assets/Clock/SMARTsoftClock_x64.exe");
+            window.open("/assets/Clock/x64/SMARTsoftClock.exe");
         }else{
-            window.open("/assets/Clock/SMARTsoftClock_x64.exe")
+            window.open("/assets/Clock/x64/SMARTsoftClock.exe")
         }
     }
 </script>
@@ -467,9 +467,9 @@
         </div>
         <div class="screenshot-container" style="position: relative;">
           <div class="image-gallery">
-            <img class="product-screenshot" src="https://s11.ax1x.com/2024/02/20/pFYgxPK.png" alt="图片1">
-            <img class="product-screenshot" src="https://s11.ax1x.com/2024/02/20/pFYgxPK.png" alt="图片2">
-            <img class="product-screenshot" src="https://s11.ax1x.com/2024/02/20/pFYgxPK.png" alt="图片3">
+            <img class="product-screenshot" src="/assets/Clock/SMARTsoftClock-Sample-1.png" alt="第1张截图（共3张）">
+            <img class="product-screenshot" src="/assets/Clock/SMARTsoftClock-Sample-2.png" alt="第2张截图（共3张）">
+            <img class="product-screenshot" src="/assets/Clock/SMARTsoftClock-Sample-3.png" alt="第3张截图（共3张）">
           </div>
           <button class="slider-button slider-button-left" onclick="slide(-500)">
               <svg width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
