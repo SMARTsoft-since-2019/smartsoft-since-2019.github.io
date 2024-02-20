@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -169,6 +170,8 @@
     max-width: 100%;
     height: auto;
     margin-right: 10px; 
+	transition: transform 0.3s ease;
+    cursor: zoom-in;
   }
 
   
@@ -241,7 +244,37 @@
       background-color: #ddd;
     }
     
-
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  #modal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+  #modal img {
+    max-width: 900px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+  #close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
 </style>
 <style>
     body{
@@ -336,6 +369,77 @@
       color: rgba(0, 95, 184, 1);
       background-color: #eeeeee;
     }
+    .product-screenshot{
+      transition: .1s ease-out !important;
+    }
+    .product-screenshot:hover {
+      filter: brightness(90%);
+    }
+    #overlay{
+      top: 91.333px;
+      bottom: 0;
+      height: auto;
+      background-color: hsl(240 3.8% 46.1% / 33%);
+      backdrop-filter: blur(5px);
+    }
+    #modal{
+      padding: 0 !important;
+      max-width: 85%;
+    }
+    #modal img{
+      max-width: 100%;
+    }
+    #close{
+      height: 42px;
+      width: 42px;
+      border-radius: 50%;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: .15s ease-out;
+    }
+    #close:hover{
+      background-color: rgba(110, 110, 110, 0.2);
+    }
+    .main-content{
+      position: relative;
+      margin-left: 150px;
+      padding-left: 70px;
+    }
+    .main-content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("/assets/PortableBenchmark/favicon.ico");
+      background-size: cover;
+      background-attachment: fixed;
+      filter: blur(96px);
+      z-index: -1;
+    }
+    .sidebar{
+      background-color: #FFFFFF60;
+    }
+    .navbar{
+      background-color: white;
+      color: black;
+      box-shadow: rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px;
+    }
+    .navbar-buttons a{
+      color: black;
+    }
+    .search-input{
+      background-color: white;
+    }
+    .footer{
+      position: relative;
+      background-color: white;
+      color: black;
+      padding: 0;
+    }
 </style>
 <script>
     var slideIndex = 0;
@@ -351,21 +455,8 @@
         slides[slideIndex-1].style.display = "block";
         setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
-    /*function x64download(){
-        window.open("/assets/Clock/SMARTsoftClock_x64.exe");
-    }
-    function x86download(){
-        window.open("/assets/Clock/SMARTsoftClock_x86.exe");
-    }*/
     function autoDownload(){
-        var agent = navigator.userAgent.toLowerCase();
-        if (agent.indexOf("win32") >= 0 || agent.indexOf("wow32") >= 0) {
-            window.open("/assets/Clock/SMARTsoftClock_x86.exe");
-        }else if (agent.indexOf("win64") >= 0 || agent.indexOf("wow64") >= 0) {
-            window.open("/assets/Clock/SMARTsoftClock_x64.exe");
-        }else{
-            window.open("/assets/Clock/SMARTsoftClock_x64.exe")
-        }
+        window.open("assets/PortableBenchmark/SMARTsoftPortableBenchmark.exe")
     }
 </script>
 <script>
@@ -412,14 +503,14 @@
     
 <div class="main-content">
     <div class="container app-info-container">
-      <img class="icon product-icon product-icon-on-title" src="/assets/favicon.png" alt="大图标">
+      <img class="icon product-icon product-icon-on-title" src="/assets/PortableBenchmark/favicon.ico" alt="大图标">
       <div class="text-button-container">
-        <h1 class="title">SMARTsoft Clock</h1>
-        <p class="subtitle">Experience unrivaled precision with the clock, perfectly tailored to fit your screen.</p>
+        <h1 class="title">SMARTsoft Portable Benchmark</h1>
+        <p class="subtitle">便携移动的CPU测试软件</p>
         <div sytle="display: inline-block">
             <button class="button download-button" onclick="autoDownload()">
                 <span>获取</span>
-                <img width="14" height="16" src="https://apps.microsoft.com/assets/icons/get-light.svg">
+                <!--<img width="14" height="16" src="https://apps.microsoft.com/assets/icons/get-light.svg">*/-->
             </button>
         </div>
       </div>
@@ -431,9 +522,9 @@
         </div>
         <div class="screenshot-container" style="position: relative;">
           <div class="image-gallery">
-            <img class="product-screenshot" src="/assets/Clock/SMARTsoftClock-Sample-1.png" alt="图片1">
-            <img class="product-screenshot" src="/assets/img1.jpg" alt="图片2">
-            <img class="product-screenshot" src="/assets/img1.jpg" alt="图片3">
+            <img class="product-screenshot" src="/assets/PortableBenchmark/PortableBenchmark-Sample-1.png" alt="第1张截图（共3张）">
+            <img class="product-screenshot" src="/assets/PortableBenchmark/PortableBenchmark-Sample-2.png" alt="第2张截图（共3张）">
+            <img class="product-screenshot" src="/assets/PortableBenchmark/PortableBenchmark-Sample-3.png" alt="第3张截图（共3张）">
           </div>
           <button class="slider-button slider-button-left" onclick="slide(-500)">
               <svg width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
@@ -447,26 +538,6 @@
           </button>
         </div>
         <div class="right-section" id="description">
-          <h3>描述</h3>
-          <h1>SMARTsoft Clock <a href="https://github.com/SMARTsoft-since-2019/SmartsoftClock/releases/tag/3.5a"><img alt="" src="https://img.shields.io/badge/release-3.5a-34c552.svg" /></a></h1>
-    <p>Latest Build: 3.5a released on September 23, 2023</p>
-    <h3>How to use</h3>
-    <ul>
-    <li>Choose the appropriate version (x86/x64) and download.</li>
-    <li>SMARTsoft Clock is single-file and click-to-run without installation.</li>
-    <li>Customize the clock using hotkeys (instructions displayed on first startup and on title bar).</li>
-    <li>For any issues, fell free to submit them or join our QQ group: 625998847.</li>
-    </ul>
-    <hr />
-    <h1>慧软钟 <a href="https://github.com/SMARTsoft-since-2019/SmartsoftClock/releases/tag/3.5a"><img alt="" src="https://img.shields.io/badge/release-3.5a-34c552.svg" /></a></h1>
-    <p>最新稳定版： 3.5a 发布于2023年9月23日</p>
-    <h3>使用方法：</h3>
-    <ul>
-    <li>选择32位(x86)或64位的版本下载。</li>
-    <li>即点即用，无需安装。</li>
-    <li>使用键盘快捷键自定义时钟（快捷键说明会在首次启动时弹窗和在标题栏上展示）</li>
-    <li>如有任何问题，欢迎提交Issue或加入我们的 QQ 群：625998847。</li>
-    </ul>
     
         </div>
         <div class="right-section" id="system">
@@ -499,6 +570,17 @@
 
 <div class="footer">
     © SMARTsoft 2024
+</div>
+
+<div id="overlay">
+  <span id="close">
+    <svg width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+      <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+    </svg>
+  </span>
+  <div id="modal">
+    <img id="modal-img" src="" alt="Modal Image">
+  </div>
 </div>
 
     <script>
@@ -658,6 +740,26 @@
         }
       }
     });
+  </script>
+  <script>
+	  const modalImg = document.getElementById('modal-img');
+	  const images = document.querySelectorAll('.product-screenshot');
+	  images.forEach(image => {
+	    image.addEventListener('click', () => {
+	      modalImg.src = image.src;
+	      overlay.style.display = 'flex';
+	    });
+	  });
+	
+	  overlay.addEventListener('click', (e) => {
+	    if (e.target === overlay) {
+	      overlay.style.display = 'none';
+	    }
+	  });
+	
+	  document.getElementById('close').addEventListener('click', () => {
+	    overlay.style.display = 'none';
+	  });
   </script>
 
 </body>
