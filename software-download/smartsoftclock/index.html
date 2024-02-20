@@ -377,7 +377,6 @@
     }
     #overlay{
       top: 91.333px;
-      bottom: 38.667px;
       height: auto;
       background-color: hsl(240 3.8% 46.1% / 33%);
       backdrop-filter: blur(5px);
@@ -390,13 +389,17 @@
       max-width: 100%;
     }
     #close{
-      height: 35px;
-      width: 35px;
+      height: 42px;
+      width: 42px;
       border-radius: 5px;
-      background-color: rgba(110, 110, 110, 0.2);
+      background-color: transparent;
       display: flex;
       justify-content: center;
       align-items: center;
+      transition: .15s ease-out;
+    }
+    #close:hover{
+      background-color: rgba(110, 110, 110, 0.2);
     }
     .main-content{
       position: relative;
