@@ -369,6 +369,30 @@
       color: rgba(0, 95, 184, 1);
       background-color: #eeeeee;
     }
+    .product-screenshot{
+      transition: .1s ease-out !important;
+    }
+    .product-screenshot:hover {
+      filter: brightness(90%);
+    }
+    #overlay{
+      top: 91.333px;
+      bottom: 38.667px;
+      height: auto;
+    }
+    #modal{
+      padding: 0 !important;
+      max-width: 85%;
+    }
+    #modal img{
+      max-width: 100%;
+    }
+    #close{
+      height: 35px;
+      width: 35px;
+      border-radius: 3px;
+      border: 1px solid red;
+    }
 </style>
 <script>
     var slideIndex = 0;
@@ -452,7 +476,7 @@
         <div sytle="display: inline-block">
             <button class="button download-button" onclick="autoDownload()">
                 <span>获取</span>
-                /*<img width="14" height="16" src="https://apps.microsoft.com/assets/icons/get-light.svg">*/
+                <!--<img width="14" height="16" src="https://apps.microsoft.com/assets/icons/get-light.svg">*/-->
             </button>
         </div>
       </div>
@@ -535,8 +559,8 @@
 </div>
 
 <div id="overlay">
+  <span id="close">&times;</span>
   <div id="modal">
-    <span id="close">&times;</span>
     <img id="modal-img" src="" alt="Modal Image">
   </div>
 </div>
@@ -700,24 +724,24 @@
     });
   </script>
   <script>
-  const modalImg = document.getElementById('modal-img');
-  const images = document.querySelectorAll('.image-gallery');
-  images.forEach(image => {
-    image.addEventListener('click', () => {
-      modalImg.src = image.querySelector('img').src;
-      overlay.style.display = 'flex';
-    });
-  });
-
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-      overlay.style.display = 'none';
-    }
-  });
-
-  document.getElementById('close').addEventListener('click', () => {
-    overlay.style.display = 'none';
-  });
+	  const modalImg = document.getElementById('modal-img');
+	  const images = document.querySelectorAll('.image-gallery');
+	  images.forEach(image => {
+	    image.addEventListener('click', () => {
+	      modalImg.src = image.querySelector('img').src;
+	      overlay.style.display = 'flex';
+	    });
+	  });
+	
+	  overlay.addEventListener('click', (e) => {
+	    if (e.target === overlay) {
+	      overlay.style.display = 'none';
+	    }
+	  });
+	
+	  document.getElementById('close').addEventListener('click', () => {
+	    overlay.style.display = 'none';
+	  });
   </script>
 
 </body>
