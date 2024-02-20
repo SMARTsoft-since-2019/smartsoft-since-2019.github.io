@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,12 +35,12 @@
         display: inline-block;
     }
     .navbar-buttons a {
-        margin-left: 10px;
-        color: white; 
+        margin-left: 35px;
+        color: black; 
         text-decoration: none;
     }
     .navbar-buttons a:hover {
-        text-decoration: underline;
+        color: #005FB8;
     }
     .sidebar {
         position: fixed;
@@ -169,6 +170,8 @@
     max-width: 100%;
     height: auto;
     margin-right: 10px; 
+	transition: transform 0.3s ease;
+    cursor: zoom-in;
   }
 
   
@@ -192,28 +195,45 @@
 
     /* 定义搜索框的样式 */
     .search-box {
-      display: inline-block;
-      position: relative;
-      width: 300px;
-      margin: 20px auto;
-    }
+	height: 15px;
+    transform: translate(57px,7px);
+        width: 300px;
+		border: 2px solid #ccc;
+		padding: 5px;
+		display: inline-block;
+		align-items: center;
+		border-radius: 10px; /* 这会使搜索框的边角变得圆润 */
+	}
 
-    .search-input {
-      background-color: #333;
-      color: white;
-      width: 100%;
-      height: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-      outline: none;
-    }
+	.search-box:focus-within {
+	border-color: #005FB8;
+	}
+	.search-box input[type="text"] {
+	border: none;
+	padding: 5px;
+	margin-left: 5px;
+	outline: none;
+	width: 100%;
+	}
+	.search-icon {
+	transform: translate(3px, -4px);
+	background-image: url('search-icon.png'); /* Replace with your search icon image path */
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	}
+	.divider {
+	display: inline-block;
+    transform: translateY(-4px);
+	border-left: 1px solid #ccc;
+	margin: 0 5px;
+	height: 20px;
+	}
 
     /* 定义建议列表的样式 */
     .suggestion-list {
-      color: white;
-      background-color: #333;
+      color: blak;
+      background-color: white;
       position: absolute;
       top: 50px;
       left: 0;
@@ -234,11 +254,209 @@
     }
 
     .suggestion-item:hover {
-      background-color: #A9A9A9;
+      background-color: #ccc;
     }
 
     .suggestion-item.active {
       background-color: #ddd;
+    }
+    
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  #modal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+  #modal img {
+    max-width: 900px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+  #close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+</style>
+<style>
+    body{
+        scroll-behavior: smooth;
+    }
+    .download-button{
+      height: 46px;
+      border: none;
+      color: white;
+      background-color: #0067c0;
+      border-radius: 5px;
+      box-shadow: 0 1px 1px #003d7380;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 600;
+      height: 46px !important;
+      width: 180px !important;
+    }
+    .download-button:hover{
+      background-color: #1a76c6;
+      box-shadow: 0 1px 1px #0f487980;
+      transition: .15s ease-out;
+    }
+    .download-button:active{
+      color: #c2daf0;
+      background-color: #3284cc;
+      box-shadow: none;
+      transition: .1s;
+    }
+    .product-icon-on-title{
+      display: flex;
+      height: 150px;
+      width: 150px;
+    }
+    .app-info-container{
+      margin: 2.5rem 0px 4.25rem;
+      gap: 2rem;
+    }
+    .text-button-container h1.title{
+      font-size: 28px;
+      font-weight: 600;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .text-button-container p{
+      margin-bottom: 16px !important;
+    }
+    .subtitle{
+      margin-top: 0;
+    }
+    .sidebar{
+      height: 100%;
+      width: 100px;
+      padding-top: 60px;
+    }
+    .image-gallery{
+      scrollbar-width: none;
+    }
+    .right-content{
+      overflow: visible;
+    }
+    .screenshot-container{
+      overflow: visible;
+    }
+    .product-screenshot{
+      max-width: 40% !important;
+      border-radius: 7px;
+    }
+    .slider-button {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: 40px;
+      height: 40px;
+      background-color: #f9f9f9;
+      padding: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 50%;
+      box-shadow: rgba(0, 0, 0, 0.14) 0px 4px 8px 0px;
+      transform: translateY(-50%);
+      justify-content: center;
+      align-items: center;
+      transition: .18s ease-out;
+    }
+    .slider-button-left {
+      left: -20px;
+    }
+    .slider-button-right {
+      right: -20px;
+    }
+    .slider-button:hover{
+      color: rgba(0, 95, 184, 1);
+      background-color: #eeeeee;
+    }
+    .product-screenshot{
+      transition: .1s ease-out !important;
+    }
+    .product-screenshot:hover {
+      filter: brightness(90%);
+    }
+    #overlay{
+      top: 80px;
+      bottom: 0;
+      height: auto;
+      background-color: hsl(240 3.8% 46.1% / 33%);
+      backdrop-filter: blur(5px);
+    }
+    #modal{
+      padding: 0 !important;
+      max-width: 85%;
+    }
+    #modal img{
+      max-width: 100%;
+    }
+    #close{
+      height: 42px;
+      width: 42px;
+      border-radius: 50%;
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: .15s ease-out;
+    }
+    #close:hover{
+      background-color: rgba(110, 110, 110, 0.2);
+    }
+    .main-content{
+      position: relative;
+      margin-left: 150px;
+      padding-left: 70px;
+    }
+    .main-content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("/assets/PortableBenchmark/favicon.png");
+      background-size: cover;
+      background-attachment: fixed;
+      filter: blur(96px);
+      z-index: -1;
+    }
+    .sidebar{
+      background-color: #FFFFFF60;
+    }
+    .navbar{
+      background-color: white;
+      color: black;
+      box-shadow: rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px;
+      height: 60px;
+    }
+    .navbar-buttons a{
+      color: black;
+    }
+    .search-input{
+      background-color: white;
+    }
+    .footer{
+      position: relative;
+      background-color: transparent;
+      color: black;
+      padding: 0;
     }
 </style>
 <script>
@@ -255,12 +473,26 @@
         slides[slideIndex-1].style.display = "block";
         setTimeout(showSlides, 2000); // Change image every 2 seconds
     }
-    /*function x64download(){
-        window.open("/assets/PortableBenchmark/SMARTsoftPortableBenchmark_x64.exe"); // 将"https://www.example.com"替换为要打开的网址
-    }*/
-    function x86download(){
-        window.open("/assets/PortableBenchmark/SMARTsoftPortableBenchmark.exe"); // 将"https://www.example.com"替换为要打开的网址
+    function autoDownload(){
+        window.open("assets/PortableBenchmark/SMARTsoftPortableBenchmark.exe")
     }
+</script>
+<script>
+  let currentPosition = 0;
+  const slideStep = 100; // Adjust this value for slide distance
+  
+  function slide(direction) {
+    const gallery = document.querySelector('.image-gallery');
+    const galleryWidth = gallery.offsetWidth;
+    const galleryScrollWidth = gallery.scrollWidth;
+    const maxScrollPosition = galleryScrollWidth - galleryWidth;
+
+    currentPosition = Math.min(Math.max(currentPosition + direction, 0), maxScrollPosition);
+    gallery.scrollTo({
+      left: currentPosition,
+      behavior: 'smooth'
+    });
+  }
 </script>
 </head>
 <body>
@@ -270,18 +502,19 @@
     <div class="navbar-text"><h3>SMARTsoft - 应用和游戏</h3></div>
     <div class="navbar-buttons">
         <a href="/">首页</a>
-        <a href="/software-download">软件下载</a>
+        <a href="/software-download" style="text-decoration: underline;color: #005FB8;text-underline-offset: 10px;text-decoration-thickness: 3px;">软件下载</a>
         <a href="/about">关于</a>
     </div>
     <div class="search-box">
-    <input type="text" class="search-input" id="search-input" placeholder="请输入搜索内容" />
-    <ul class="suggestion-list" id="suggestion-list"></ul>
+      <span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-search" viewBox="0 0 16 16" part="svg"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path> </svg></span>
+      <div class="divider"></div>
+      <input class="search-input" id="search-input" type="text" placeholder="搜索应用、游戏等" style="color: black;transform: translateY(-8px);display: inline-block;width: 240px;">
+        <ul class="suggestion-list" id="suggestion-list"></ul>
   </div>
 </div>
 
 
 <div class="sidebar">
-    <h3>SMARTsoft Portable Benchmark</h3>
     <a href="#screenshot" class="black-link"><p>屏幕截图</p></a>
     <a href="#description" class="black-link"><p>描述</p></a>
     <a href="#system" class="black-link"><p>系统要求</p></a>
@@ -289,11 +522,17 @@
 </div>
     
 <div class="main-content">
-    <div class="container">
-      <img class="icon" src="/assets/spb_favicon.png" alt="大图标" style="transform: translateY(15px);"> <!-- 替换为您的图标图片路径 -->
+    <div class="container app-info-container">
+      <img class="icon product-icon product-icon-on-title" src="/assets/PortableBenchmark/favicon.png" alt="大图标">
       <div class="text-button-container">
-        <h1>SMARTsoft Portable Benchmark</h1>
-        <button onclick="x86download()" style=" height: 40px;width: 200px;transform: translateX(30px);"><h3 style="transform: translateY(-8px);">获取x86版</h3></button>
+        <h1 class="title">SMARTsoft Portable Benchmark</h1>
+        <p class="subtitle">便携移动的CPU测试软件</p>
+        <div sytle="display: inline-block">
+            <button class="button download-button" onclick="autoDownload()">
+                <span>获取</span>
+                <!--<img width="14" height="16" src="https://apps.microsoft.com/assets/icons/get-light.svg">*/-->
+            </button>
+        </div>
       </div>
     </div>
 
@@ -301,14 +540,25 @@
         <div class="right-section" id="screenshot">
           <h3>屏幕截图</h3>
         </div>
-        <div class="image-gallery">
-          <img src="/assets/PortableBenchmark/image.png" alt="图片1">
-          <img src="/assets/PortableBenchmark/image.png" alt="图片2">
-          <img src="/assets/PortableBenchmark/image.png" alt="图片3">
-    
+        <div class="screenshot-container" style="position: relative;">
+          <div class="image-gallery">
+            <img class="product-screenshot" src="/assets/PortableBenchmark/PortableBenchmark-Sample-1.png" alt="第1张截图（共3张）">
+            <img class="product-screenshot" src="/assets/PortableBenchmark/PortableBenchmark-Sample-2.png" alt="第2张截图（共3张）">
+            <img class="product-screenshot" src="/assets/PortableBenchmark/PortableBenchmark-Sample-3.png" alt="第3张截图（共3张）">
+          </div>
+          <button class="slider-button slider-button-left" onclick="slide(-500)">
+              <svg width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
+              </svg>
+          </button>
+          <button class="slider-button slider-button-right" onclick="slide(500)">
+              <svg width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path>
+              </svg>
+          </button>
         </div>
         <div class="right-section" id="description">
-          <h3>描述</h3>
+    
         </div>
         <div class="right-section" id="system">
           <h3>系统要求</h3>
@@ -340,6 +590,17 @@
 
 <div class="footer">
     © SMARTsoft 2024
+</div>
+
+<div id="overlay">
+  <span id="close">
+    <svg width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+      <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+    </svg>
+  </span>
+  <div id="modal">
+    <img id="modal-img" src="" alt="Modal Image">
+  </div>
 </div>
 
     <script>
@@ -499,6 +760,26 @@
         }
       }
     });
+  </script>
+  <script>
+	  const modalImg = document.getElementById('modal-img');
+	  const images = document.querySelectorAll('.product-screenshot');
+	  images.forEach(image => {
+	    image.addEventListener('click', () => {
+	      modalImg.src = image.src;
+	      overlay.style.display = 'flex';
+	    });
+	  });
+	
+	  overlay.addEventListener('click', (e) => {
+	    if (e.target === overlay) {
+	      overlay.style.display = 'none';
+	    }
+	  });
+	
+	  document.getElementById('close').addEventListener('click', () => {
+	    overlay.style.display = 'none';
+	  });
   </script>
 
 </body>
