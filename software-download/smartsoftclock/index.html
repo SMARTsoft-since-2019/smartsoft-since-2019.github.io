@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -169,11 +170,16 @@
     max-width: 100%;
     height: auto;
     margin-right: 10px; 
+	transition: transform 0.3s ease;
   }
 
   
   .image-gallery img:last-child {
     margin-right: 0;
+  }
+  
+  .image-gallery img:hover {
+  transform: scale(1.1);
   }
 
   .right-section {
@@ -241,7 +247,37 @@
       background-color: #ddd;
     }
     
-
+	#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  #modal {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+  #modal img {
+    max-width: 900px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+  #close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
 </style>
 <style>
     body{
@@ -360,11 +396,11 @@
     function autoDownload(){
         var agent = navigator.userAgent.toLowerCase();
         if (agent.indexOf("win32") >= 0 || agent.indexOf("wow32") >= 0) {
-            window.open("/assets/Clock/x86/SMARTsoftClock.exe");
+            window.open("/assets/Clock/SMARTsoftClock_x86.exe");
         }else if (agent.indexOf("win64") >= 0 || agent.indexOf("wow64") >= 0) {
-            window.open("/assets/Clock/x64/SMARTsoftClock.exe");
+            window.open("/assets/Clock/SMARTsoftClock_x64.exe");
         }else{
-            window.open("/assets/Clock/x64/SMARTsoftClock.exe")
+            window.open("/assets/Clock/SMARTsoftClock_x64.exe")
         }
     }
 </script>
@@ -431,9 +467,9 @@
         </div>
         <div class="screenshot-container" style="position: relative;">
           <div class="image-gallery">
-            <img class="product-screenshot" src="/assets/Clock/SMARTsoftClock-Sample-1.png" alt="第1张截图（共3张）">
-            <img class="product-screenshot" src="/assets/Clock/SMARTsoftClock-Sample-2.png" alt="第2张截图（共3张）">
-            <img class="product-screenshot" src="/assets/Clock/SMARTsoftClock-Sample-3.png" alt="第3张截图（共3张）">
+            <img class="product-screenshot" src="https://s11.ax1x.com/2024/02/20/pFYgxPK.png" alt="图片1">
+            <img class="product-screenshot" src="https://s11.ax1x.com/2024/02/20/pFYgxPK.png" alt="图片2">
+            <img class="product-screenshot" src="https://s11.ax1x.com/2024/02/20/pFYgxPK.png" alt="图片3">
           </div>
           <button class="slider-button slider-button-left" onclick="slide(-500)">
               <svg width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
@@ -499,6 +535,13 @@
 
 <div class="footer">
     © SMARTsoft 2024
+</div>
+
+<div id="overlay">
+  <div id="modal">
+    <span id="close">&times;</span>
+    <img id="modal-img" src="" alt="Modal Image">
+  </div>
 </div>
 
     <script>
@@ -658,6 +701,26 @@
         }
       }
     });
+  </script>
+  <script>
+  const modalImg = document.getElementById('modal-img');
+  const images = document.querySelectorAll('.image-gallery');
+  images.forEach(image => {
+    image.addEventListener('click', () => {
+      modalImg.src = image.querySelector('img').src;
+      overlay.style.display = 'flex';
+    });
+  });
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      overlay.style.display = 'none';
+    }
+  });
+
+  document.getElementById('close').addEventListener('click', () => {
+    overlay.style.display = 'none';
+  });
   </script>
 
 </body>
