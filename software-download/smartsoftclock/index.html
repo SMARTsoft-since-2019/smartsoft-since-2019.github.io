@@ -377,6 +377,7 @@
     }
     #overlay{
       top: 91.333px;
+      bottom: 0;
       height: auto;
       background-color: hsl(240 3.8% 46.1% / 33%);
       backdrop-filter: blur(5px);
@@ -391,7 +392,7 @@
     #close{
       height: 42px;
       width: 42px;
-      border-radius: 5px;
+      border-radius: 50%;
       background-color: transparent;
       display: flex;
       justify-content: center;
@@ -606,7 +607,7 @@
 
 <div id="overlay">
   <span id="close">
-    <svg width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+    <svg width="25" height="25" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
       <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
     </svg>
   </span>
