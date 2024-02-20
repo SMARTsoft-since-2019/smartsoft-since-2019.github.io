@@ -509,9 +509,9 @@
         </div>
         <div class="screenshot-container" style="position: relative;">
           <div class="image-gallery">
-            <img class="product-screenshot" src="/assets/Clock/SMARTsoftClock-Sample-1.png" alt="第1张截图（共3张）">
-            <img class="product-screenshot" src="/assets/Clock/SMARTsoftClock-Sample-2.png" alt="第2张截图（共3张）">
-            <img class="product-screenshot" src="/assets/Clock/SMARTsoftClock-Sample-3.png" alt="第3张截图（共3张）">
+            <div class="shot"><img class="product-screenshot" src="/assets/Clock/SMARTsoftClock-Sample-1.png" alt="第1张截图（共3张）"></div>
+            <div class="shot"><img class="product-screenshot" src="/assets/Clock/SMARTsoftClock-Sample-2.png" alt="第2张截图（共3张）"></div>
+            <div class="shot"><img class="product-screenshot" src="/assets/Clock/SMARTsoftClock-Sample-3.png" alt="第3张截图（共3张）"></div>
           </div>
           <button class="slider-button slider-button-left" onclick="slide(-500)">
               <svg width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
@@ -750,7 +750,7 @@
   </script>
   <script>
 	  const modalImg = document.getElementById('modal-img');
-	  const images = document.querySelectorAll('.product-screenshot');
+	  const images = document.querySelectorAll('.shot');
 	  images.forEach(image => {
 	    image.addEventListener('click', () => {
 	      modalImg.src = image.querySelector('img').src;
