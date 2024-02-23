@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,15 +36,16 @@
     }
     .navbar-buttons a {
         margin-left: 35px;
-        color: white; 
+        color: black; 
         text-decoration: none;
     }
     .navbar-buttons a:hover {
-        color: #60CDFF;
+        color: #005FB8;
     }
     .main-content {
         margin-top: 70px; /* Adjust according to navbar height */
         padding: 20px;
+		overflow-x: hidden;
     }
     .slideshow-container {
         position: relative;
@@ -87,6 +89,7 @@
     .three-columns {
         display: flex;
         margin-bottom: 20px;
+		transform: translateY(10px);
     }
     .column {
         flex: 1;
@@ -114,8 +117,7 @@
 	height: 15px;
     transform: translate(57px,7px);
         width: 300px;
-		background-color: #333;
-		border: 2px solid white;
+		border: 2px solid #ccc;
 		padding: 5px;
 		display: inline-block;
 		align-items: center;
@@ -123,7 +125,7 @@
 	}
 
 	.search-box:focus-within {
-	border-color: #60CDFF;
+	border-color: #005FB8;
 	}
 	.search-box input[type="text"] {
 	border: none;
@@ -142,15 +144,15 @@
 	.divider {
 	display: inline-block;
     transform: translateY(-4px);
-	border-left: 1px solid white;
+	border-left: 1px solid #ccc;
 	margin: 0 5px;
 	height: 20px;
 	}
 
     /* 定义建议列表的样式 */
     .suggestion-list {
-      color: white;
-      background-color: #333;
+      color: blak;
+      background-color: white;
       position: absolute;
       top: 50px;
       left: 0;
@@ -171,13 +173,228 @@
     }
 
     .suggestion-item:hover {
-      background-color: #A9A9A9;
+      background-color: #ccc;
     }
 
     .suggestion-item.active {
       background-color: #ddd;
     }
 </style>
+<style>
+    body{
+        scroll-behavior: smooth;
+    }
+    .sidebar{
+      height: 100%;
+      width: 100px;
+      padding-top: 60px;
+      background-color: #FFFFFF60;
+    }
+    .main-content{
+      position: relative;
+      margin-left: 150px;
+      padding-left: 70px;
+    }
+    .main-content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("/assets/favicon.ico");
+      background-size: cover;
+      background-attachment: fixed;
+      filter: blur(96px);
+      z-index: -1;
+    }
+    .navbar{
+      background-color: white;
+      color: black;
+      box-shadow: rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px, rgba(0, 0, 0, 0.2) 0px 2px 4px -1px;
+      height: 60px;
+    }
+    .navbar-buttons a{
+      color: black;
+    }
+    .search-input{
+      background-color: white;
+    }
+    .footer{
+      position: relative;
+      background-color: transparent;
+      color: black;
+      padding: 0;
+    }
+</style>
+
+<script src="https://cdn.lordicon.com/ritcuqlt.js"></script>  
+<style>  
+	@font-face {  
+		font-family: "Alimama_DongFangDaKai_Regular";  
+		src: url(./font/Alimama_DongFangDaKai_Regular.ttf);  
+	}  
+	.container {
+		/* top: 20px; */
+		top: -10px;
+		width: 1101px;
+		/* height: 500px; */
+		/* top: 50%; */
+		/* left: 50%; */
+		/* transform: translate(-50%, -50%); */
+		background-color: #f5f5f5;
+		/* padding: 50px; */
+		box-shadow: 0 30px 50px #dbdbdb;
+		transform: translate(-130px,12px);
+		height: 500px;
+		left: 140px;
+		position: relative;
+		overflow-x: hidden;
+	}  
+
+	#slide {  
+		width: max-content;  
+		margin-top: 50px;  
+	}  
+
+	.item {  
+		width: 200px;  
+		height: 300px;  
+		background-position: 50%, 50%;  
+		display: inline-block;  
+		position: absolute;  
+		top: 50%;  
+		/* transform: translateY(-50%); */  
+		margin-top: -150px;  
+		border-radius: 20px;  
+		box-shadow: 0 30px 50px #505050;  
+		transition: .5s;  
+	}  
+
+	.item:nth-child(1),  
+	.item:nth-child(2) {  
+		top: 0;  
+		left: 0;  
+		width: 100%;  
+		height: 100%;  
+		background-size: cover;  
+		background-repeat: no-repeat;  
+		/* transform: translateY(0); */  
+		margin-top: 0px;  
+		border-radius: 0;  
+		box-shadow: none;  
+	}  
+
+	.item:nth-child(3) {  
+		left: 60%;  
+	}  
+
+	.item:nth-child(4) {  
+		left: calc(60% + 220px);  
+	}  
+
+	.item:nth-child(5) {  
+		left: calc(60% + 440px);  
+	}  
+
+	.item .content {  
+		width: 300px;  
+		position: absolute;  
+		left: 30%;  
+		top: 48%;  
+		transform: translateY(-50%);  
+		font-family: "Alimama_DongFangDaKai_Regular";  
+		color: #c7ecee;  
+		display: none;  
+	}  
+
+	.item .content button {  
+		border-radius: 10px;  
+		background-color: #dff9fb;  
+		cursor: pointer;  
+	}  
+
+	.item:nth-child(2) .content {  
+		display: block;  
+	}  
+
+	.item .name {  
+		font-size: 40px;  
+		font-weight: bold;  
+		opacity: 0;  
+		animation: showcontent 1s ease-in-out 1 forwards;  
+	}  
+
+	.item .des {  
+		margin: 20px 0;  
+		opacity: 0;  
+		animation: showcontent 1s ease-in-out 0.3s 1 forwards;  
+	}  
+
+	.item button {  
+		padding: 10px 20px;  
+		border: none;  
+		opacity: 0;  
+		animation: showcontent 1s ease-in-out 0.6s 1 forwards;  
+	}  
+
+	@keyframes showcontent {  
+		from {  
+			opacity: 0;  
+			transform: translateY(100px);  
+			filter: blur(20px);  
+		}  
+
+		to {  
+			opacity: 1;  
+			transform: translateY(0);  
+			filter: blur(0);  
+		}  
+	}  
+
+	.buttons {  
+		width: auto;  
+		position: absolute;  
+		bottom: 200px;  
+		margin-left: -50px;  
+		text-align: center;  
+		left: 75%;  
+	}  
+
+	.s_button {  
+		display: inline-block;  
+		width: 50px;  
+		height: 50px;  
+		line-height: 50px;  
+		text-align: center;  
+		color: gray;  
+		background-color: rgb(255, 255, 255, 0.3);  
+		font-size: 25px;  
+		border-radius: 20px;  
+		font-weight: bold;  
+		border: 1px solid #555;  
+		margin: 0 10px;  
+		transition: .5s;  
+	}  
+
+	.s_button:hover {  
+		cursor: pointer;  
+		background-color: #ccc;  
+	}  
+
+	.icon {  
+		width: 50px;  
+		height: 50px  
+	}  
+
+	.icon_box {  
+		position: absolute;  
+		left: 35%;  
+		bottom: -7%;  
+		opacity: 0;  
+		animation: showcontent 1s ease-in-out 0.6s 1 forwards;  
+	}  
+</style> 
 <script>
     var slideIndex = 0;
 
@@ -203,38 +420,82 @@
     <div class="navbar-icon"><img src="/assets/favicon.png" alt="Icon" height="auto" width="30px"></div>
     <div class="navbar-text"><h3>SMARTsoft - 应用和游戏</h3></div>
     <div class="navbar-buttons">
-        <a href="#" style="text-decoration: underline;color: #60CDFF;text-underline-offset: 10px;text-decoration-thickness: 3px;"><span>首页</span></a>
-        <a href="/software-download"><span>软件下载</span></a>
-        <a href="/about"><span>关于</span></a>
+        <a href="/" style="text-decoration: underline;color: #005FB8;text-underline-offset: 10px;text-decoration-thickness: 3px;">首页</a>
+        <a href="/software-download">软件下载</a>
+        <a href="/about">关于</a>
     </div>
-  <div class="search-box">
-      <span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-search" viewBox="0 0 16 16" part="svg"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path> </svg></span>
+    <div class="search-box">
+      <span class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" class="bi bi-search" viewBox="0 0 16 16" part="svg"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path> </svg></span>
       <div class="divider"></div>
-      <input id="search-input" type="text" placeholder="搜索..." style="background-color: #333;color: white;transform: translateY(-8px);display: inline-block;width: 240px;">
+      <input class="search-input" id="search-input" type="text" placeholder="搜索应用、游戏等" style="color: black;transform: translateY(-8px);display: inline-block;width: 240px;">
         <ul class="suggestion-list" id="suggestion-list"></ul>
   </div>
 </div>
 
 <div class="main-content">
-    <div class="slideshow-container">
-        <div class="slide">
-            <img src="/assets/img1.jpg" alt="Slide 1">
-            <div class="slide-content">
-                <h2>SMARTsoft Clock</h2>
-                <p>No Descriptions.</p>
-                <button onclick="redirectToPage('smartsoftclock')">了解详情</button>
-            </div>
-        </div>
-        <div class="slide">
-            <img src="/assets/PortableBenchmark/image.png" alt="Slide 2">
-            <div class="slide-content">
-                <h2>SMARTsoft Benchmark</h2>
-                <p>No Descriptions.</p>
-                <button onclick="redirectToPage('protablebenchmark')">了解详情</button>
-            </div>
-        </div>
-        <!-- Add more slides here -->
-    </div>
+    <div class="container">  
+        <div id="slide">  
+            <div class="item" style="background-image: url(https://store-images.s-microsoft.com/image/apps.12423.14241737495367733.49b272ca-c8b6-458a-b04e-3fee3a31b33a.b3ba83a5-6c72-439a-ad44-69f255ee5107?h=253);">  
+                <div class="content">  
+                    <div class="name">这里是标题</div>  
+                    <div class="des">这里是一些描述，你可以写一些相关描述</div>  
+                    <div class="icon_box">  
+                        <lord-icon src="https://cdn.lordicon.com/vixtkkbk.json" trigger="hover" class="icon">  
+                        </lord-icon>  
+                    </div>  
+                    <button>更多内容</button>  
+                </div>  
+            </div>  
+            <div class="item" style="background-image: url(https://store-images.s-microsoft.com/image/apps.12423.14241737495367733.49b272ca-c8b6-458a-b04e-3fee3a31b33a.b3ba83a5-6c72-439a-ad44-69f255ee5107?h=253);">  
+                <div class="content">  
+                    <div class="name">这里是标题</div>  
+                    <div class="des">这里是一些描述，你可以写一些相关描述</div>  
+                    <div class="icon_box">  
+                        <lord-icon src="https://cdn.lordicon.com/vixtkkbk.json" trigger="hover" class="icon">  
+                        </lord-icon>  
+                    </div>  
+                    <button>更多内容</button>  
+                </div>  
+            </div>  
+            <div class="item" style="background-image: url(https://store-images.s-microsoft.com/image/apps.12423.14241737495367733.49b272ca-c8b6-458a-b04e-3fee3a31b33a.b3ba83a5-6c72-439a-ad44-69f255ee5107?h=253);">  
+                <div class="content">  
+                    <div class="name">这里是标题</div>  
+                    <div class="des">这里是一些描述，你可以写一些相关描述</div>  
+                    <div class="icon_box">  
+                        <lord-icon src="https://cdn.lordicon.com/vixtkkbk.json" trigger="hover" class="icon">  
+                        </lord-icon>  
+                    </div>  
+                    <button>更多内容</button>  
+                </div>  
+            </div>  
+            <div class="item" style="background-image: url(https://w.wallhaven.cc/full/we/wallhaven-weeqzx.jpg);">  
+                <div class="content">  
+                    <div class="name">这里是标题</div>  
+                    <div class="des">这里是一些描述，你可以写一些相关描述</div>  
+                    <div class="icon_box">  
+                        <lord-icon src="https://cdn.lordicon.com/vixtkkbk.json" trigger="hover" class="icon">  
+                        </lord-icon>  
+                    </div>  
+                    <button>更多内容</button>  
+                </div>  
+            </div>  
+            <div class="item" style="background-image: url(https://w.wallhaven.cc/full/qz/wallhaven-qzzj5q.png);">  
+                <div class="content">  
+                    <div class="name">这里是标题</div>  
+                    <div class="des">这里是一些描述，你可以写一些相关描述</div>  
+                    <div class="icon_box">  
+                        <lord-icon src="https://cdn.lordicon.com/vixtkkbk.json" trigger="hover" class="icon">  
+                        </lord-icon>  
+                    </div>  
+                    <button>更多内容</button>  
+                </div>  
+            </div>  
+        </div>  
+        <div class="buttons">  
+            <div class="s_button"><</div>  
+            <div class="s_button">></div>  
+        </div>  
+    </div>  
 
     <div class="three-columns">
         <div class="column">
@@ -421,6 +682,33 @@
       }
     });
   </script>
+  
+ <script>  
+        let _direction = true;  
+        let _move = () => {  
+            let lists = document.querySelectorAll(".item")  
+            if (_direction) {  
+                document.querySelector("#slide").appendChild(lists[0]);  
+            } else {  
+                document.querySelector("#slide").prepend(lists[lists.length - 1]);  
+            }  
+        }  
+        let timer = setInterval(_move, 2500);  
+        document.querySelector(".container").addEventListener("mouseover", () => {  
+            clearInterval(timer);  
+        });  
+        document.querySelector(".container").addEventListener("mouseout", () => {  
+            timer = setInterval(_move, 2500)  
+        });  
+        document.querySelectorAll(".s_button")[1].onclick = () => {  
+            _direction = true;  
+            _move();  
+        }  
+        document.querySelectorAll(".s_button")[0].onclick = () => {  
+            _direction = false;  
+            _move();  
+        }  
+    </script>  
 
 </body>
 </html>
