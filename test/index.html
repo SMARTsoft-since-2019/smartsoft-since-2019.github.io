@@ -705,12 +705,12 @@
                 document.querySelector("#slide").prepend(lists[lists.length - 1]);  
             }  
         }  
-        let timer = setInterval(_move, 2500);  
+        let timer = setInterval(_move, 250000);  
         document.querySelector(".container").addEventListener("mouseover", () => {  
             clearInterval(timer);  
         });  
         document.querySelector(".container").addEventListener("mouseout", () => {  
-            timer = setInterval(_move, 2500)  
+            timer = setInterval(_move, 250000)  
         });  
         document.querySelectorAll(".s_button")[1].onclick = () => {  
             _direction = true;  
