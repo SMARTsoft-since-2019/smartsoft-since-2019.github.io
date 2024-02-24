@@ -230,10 +230,6 @@
 
 
 <style>  
-	@font-face {  
-		font-family: "Alimama_DongFangDaKai_Regular";  
-		src: url(./font/Alimama_DongFangDaKai_Regular.ttf);  
-	}  
 	.container {
 		/* top: 20px; */
 		top: -50px;
@@ -293,7 +289,11 @@
 
 	.item:nth-child(3) .content {
 	    display: block;
-	    left: 0;
+	    left: 10px;
+	}
+
+	.item:nth-child(3) .des {
+	    display: none;
 	}
 
 	.item:nth-child(4) {  
@@ -333,8 +333,7 @@
 	}  
 
 	.item .name {  
-		font-size: 40px;  
-		font-weight: bold;  
+		font-size: 35px;  
 		opacity: 0;  
 		animation: showcontent 1s ease-in-out 1 forwards;  
 	}  
