@@ -231,20 +231,22 @@
 
 <style>  
 	.container {
-		/* top: 20px; */
-		top: -50px;
-		width: calc(84.1%);
-		/* height: 500px; */
-		/* top: 50%; */
-		/* left: 50%; */
-		/* transform: translate(-50%, -50%); */
-		background-color: #f5f5f5;
-		/* padding: 50px; */
-		box-shadow: 0 30px 50px #dbdbdb;
-		transform: translate(0,12px);
-		height: 500px;
-		position: relative;
-		/*overflow-x: hidden;*/
+	    /* top: 20px; */
+	    top: 0;
+	    width: 801px;
+	    /* height: 500px; */
+	    /* top: 50%; */
+	    /* left: 50%; */
+	    /* transform: translate(-50%, -50%); */
+	    background-color: #f5f5f5;
+	    /* padding: 50px; */
+	    box-shadow: 0 30px 50px #dbdbdb;
+	    transform: translate(0,12px);
+	    height: 500px;
+	    position: relative;
+	    /* overflow-x: hidden; */
+	    left: 100px;
+	    display: flex;
 	}  
 
 	#slide {  
@@ -277,16 +279,20 @@
 		background-repeat: no-repeat;  
 		/* transform: translateY(0); */  
 		margin-top: 0px;  
-		border-radius: 0;  
+		border-radius: 20px;  
 		box-shadow: none;  
 		
-	}  
+	}
 
-	.item:nth-child(3) {  
-		left: calc(84.1% + 170px);  
-		height: 500px;
-		top: 150px;
-		width: 200px;
+	.item:nth-child(1) {
+	    display: none;
+	}
+
+	.item:nth-child(3) {
+	    left: 810px;
+	    height: 500px;
+	    top: 150px;
+	    width: 200px;
 	}  
 
 	.item:nth-child(3) .content {
@@ -299,20 +305,25 @@
 	    display: none;
 	}
 
-	.item:nth-child(4) {  
-		left: calc(60% + 220px);  
-		display: none;
-	}  
+	.item:nth-child(4) {
+	    left: 1020px;
+	    display: block;
+	    height: 500px;
+	    top: 150px;
+	}
 
 	.item:nth-child(5) {  
 		left: calc(60% + 440px);  
 		display: none;
 	}  
 
-	.item:nth-child(6) {  
-		transform: translateX(-200px);
-		display: none;
-	} 
+	.item:nth-child(6) {
+	    /* transform: translate(-210px,-100px); */
+	    display: block;
+	    height: 500px;
+	    left: -210px;
+	    top: 150px;
+	}
 
 	.item .content {  
 		width: 300px;  
@@ -375,7 +386,7 @@
 		bottom: 200px;  
 		margin-left: -50px;  
 		text-align: center;  
-		left: 50px;  
+		left: 30px;  
 	}  
 
 	/*.s_button {  
@@ -520,7 +531,7 @@
         </div>  
         <div class="buttons">  
             <div class="s_button"><</div>  
-            <div class="s_button" style="left: calc(84.1% + 1170px);position: absolute;">></div>  
+            <div class="s_button" style="left: 1020px;position: absolute;">></div>  
         </div>  
     </div>  
 
