@@ -302,7 +302,7 @@
 	}
 
 	.item:nth-child(3) .des {
-	    display: none;
+	    display: none !important;
 	}
 
 	.item:nth-child(4) {
@@ -331,7 +331,7 @@
 		left: 30%;  
 		top: 48%;  
 		transform: translateY(-50%);  
-		color: #4caf50;  
+		color: white;  
 		display: none;  
 	}  
 
@@ -490,9 +490,10 @@
             </div>
 	    <div class="item" style="background-image: url(/assets/Clock/SMARTsoftClock-Sample-2.png);">  
                 <div class="content">  
-                    <div class="name">SMARTsoft Clock<br>(慧软钟)</div>  
-                    <div class="des">Experience unrivaled precision with the clock, perfectly tailored to fit your screen.</div>  
-                    
+                    <div class="name" style="color:black;">SMARTsoft Clock<br>(慧软钟)</div>  
+                    <div class="des" style="display: inline-block;color: black;">Experience unrivaled precision with the cl</div>
+		    <div class="des" style="display: inline-block;">ock, perfectly tailored to fit your screen.</div>
+                    <br>
                     <button>了解详情</button>  
                 </div>  
             </div>  
