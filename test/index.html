@@ -237,7 +237,7 @@
 	.container {
 		/* top: 20px; */
 		top: -50px;
-		width: 856px;
+		width: calc(84.1%);
 		/* height: 500px; */
 		/* top: 50%; */
 		/* left: 50%; */
@@ -245,9 +245,8 @@
 		background-color: #f5f5f5;
 		/* padding: 50px; */
 		box-shadow: 0 30px 50px #dbdbdb;
-		transform: translate(120px,12px);
+		transform: translate(0,12px);
 		height: 500px;
-		left: 60px;
 		position: relative;
 		/*overflow-x: hidden;*/
 	}  
@@ -287,7 +286,9 @@
 	}  
 
 	.item:nth-child(3) {  
-		left: calc(60% + 340px);  
+		left: calc(84.1% + 170px);  
+		height: 500px;
+		top: 150px;
 	}  
 
 	.item:nth-child(4) {  
@@ -302,6 +303,7 @@
 
 	.item:nth-child(6) {  
 		transform: translateX(-200px);
+		display: none;
 	} 
 
 	.item .content {  
@@ -365,7 +367,7 @@
 		bottom: 200px;  
 		margin-left: -50px;  
 		text-align: center;  
-		left: -100px;  
+		left: 100px;  
 	}  
 
 	.s_button {  
